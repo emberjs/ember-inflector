@@ -1,0 +1,22 @@
+{
+  "name": "ember-inflector",
+  "summary": "Ember String Inflections",
+  "descrption": "",
+  "homepage": "http://github.com/stefanpenner/ember-inflector",
+  "author": "Stefan Penner",
+  "version": "0.0.1",
+
+  "directories":{
+    "lib": "lib"
+  },
+
+  "dependencies": {
+  },
+
+  "bpm:build": {
+    "bpm_lib.js": {
+      "files": ["lib"],
+      "modes": "*"
+    }
+  }
+}

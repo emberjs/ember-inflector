@@ -1,0 +1,1 @@
+module('ember-inflector.railsCompatibility');
