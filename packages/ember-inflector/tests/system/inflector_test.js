@@ -91,15 +91,19 @@ test("human",function(){
 });
 
 test("irregular",function(){
-  expect(3);
+  expect(6);
 
-  Ember.Inflector.irregular("1","1");
-  Ember.Inflector.irregular("2","2");
-  Ember.Inflector.irregular("3","3");
+  Ember.Inflector.irregular("1","12");
+  Ember.Inflector.irregular("2","22");
+  Ember.Inflector.irregular("3","32");
 
-  equal(Ember.Inflector.rules.irregular["1"], "1");
-  equal(Ember.Inflector.rules.irregular["2"], "2");
-  equal(Ember.Inflector.rules.irregular["3"], "3");
+  equal(Ember.Inflector.rules.irregular["1"], "12");
+  equal(Ember.Inflector.rules.irregular["2"], "22");
+  equal(Ember.Inflector.rules.irregular["3"], "32");
+
+  equal(Ember.Inflector.rules.irregularInverse["12"], "1");
+  equal(Ember.Inflector.rules.irregularInverse["22"], "2");
+  equal(Ember.Inflector.rules.irregularInverse["32"], "3");
 });
 
 test("uncountable",function(){
@@ -137,13 +141,14 @@ test("inflect.uncountable", function(){
 });
 
 test("inflect.irregular", function(){
-  expect(1);
+  expect(2);
 
   var rules = [];
 
   Ember.Inflector.irregular("word","wordy");
 
   equal(Ember.Inflector.inflect("word", rules),"wordy");
+  equal(Ember.Inflector.inflect("wordy", rules),"word");
 });
 
 test("inflect.basicRules", function(){

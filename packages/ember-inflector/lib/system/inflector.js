@@ -24,15 +24,17 @@ Ember.Inflector = {
     Ember.Inflector.rules.plurals     = [];
     Ember.Inflector.rules.singular    = [];
     Ember.Inflector.rules.humans      = [];
-    Ember.Inflector.rules.irregular   = {};
     Ember.Inflector.rules.uncountable = {};
+    Ember.Inflector.rules.irregular   = {};
+    Ember.Inflector.rules.irregularInverse = {};
   },
 
   rules: {
     plurals:  [],
     singular: [],
     humans:   [],
-    irregular:   {},
+    irregular: {},
+    irregularInverse: {},
     uncountable: {},
     ordinalization: {
       'default': 'th',
@@ -65,6 +67,7 @@ Ember.Inflector = {
 
   irregular: function(rule,substituion){
     Ember.Inflector.rules.irregular[rule] = substituion;
+    Ember.Inflector.rules.irregularInverse[substituion] = rule;
   },
 
   uncountable: function(uncountable) {
@@ -74,7 +77,8 @@ Ember.Inflector = {
   },
 
   inflect: function(word, rules) {
-    var inflection, substitution, result, lowercase, isCached, isIrregular, rule;
+    var inflection, substitution, result, lowercase,
+    isCached, isIrregular, isIrregularInverse, rule;
 
     if (Ember.Inflector.BLANK_REGEX.test(word)){
       return word;
@@ -98,6 +102,13 @@ Ember.Inflector = {
     if (isIrregular){
       // irregular
       return isIrregular;
+    }
+
+    isIrregularInverse = Ember.Inflector.rules.irregularInverse[lowercase];
+
+    if (isIrregularInverse){
+      // irregular
+      return isIrregularInverse;
     }
 
     inflection = rules.find(function(inflection) {
