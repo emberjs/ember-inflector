@@ -28,7 +28,7 @@ Ember.String.humanize = function(word) {
 Ember.String.titleize = function(word) {
    var result = Ember.String.humanize(word);
 
-   result = result.gsub(/\b(?:<!['’`])[a-z]/);
+   result = result.replace(/\b(?:<!['’`])[a-z]/);
 
    return Ember.String.capitalize(result);
 };
