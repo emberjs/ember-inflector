@@ -6,12 +6,6 @@ Ember.String.singularize = function(word) {
   return Ember.Inflector.inflect(word, Ember.Inflector.rules.singular);
 };
 
-Ember.String.ordinalize = function (word) {
-  var ordinalization = Ember.Inflector.ordinal(word);
-
-  return [word, ordinalization].join('');
-};
-
 Ember.String.humanize = function(word) {
 
   var inflected = Ember.Inflector.inflect(word,Ember.Inflector.rules.humans);

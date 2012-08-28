@@ -21,13 +21,6 @@ test("singularize", function(){
   equal( Ember.String.singularize('words'), 'word');
 });
 
-test("ordinalize", function(){
-  expect(2);
-
-  equal( Ember.String.ordinalize(1),   '1st');
-  equal( Ember.String.ordinalize('1'), '1st');
-});
-
 test("humanize", function(){
   expect(2);
 
