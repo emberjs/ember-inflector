@@ -47,7 +47,6 @@ test("plural",function(){
   Ember.Inflector.plural("3","3");
 
   equal(Ember.Inflector.rules.plurals.length, 3);
-
 });
 
 test("singular",function(){
@@ -138,4 +137,13 @@ test("inflect.basicRules", function(){
   rules = [rule];
 
   equal(Ember.Inflector.inflect("word", rules ),"words");
+});
+
+test("inflect.advancedRules", function(){
+  expect(1);
+
+  var rule = [ /^(ox)$/i, '$1en'],
+  rules = [rule];
+
+  equal(Ember.Inflector.inflect("ox", rules ),"oxen");
 });

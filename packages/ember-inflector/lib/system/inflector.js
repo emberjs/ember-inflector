@@ -101,11 +101,14 @@ Ember.Inflector = {
       return isIrregularInverse;
     }
 
-    inflection = rules.find(function(inflection) {
-      var rule = inflection[0];
+    for(var i = rules.length, min = 0; i > min; i--){
+      inflection = rules[i-1],
+      rule = inflection[0];
 
-      return rule.test(word);
-    });
+      if(rule.test(word)){
+        break;
+      }
+    }
 
     inflection = inflection || [];
 
