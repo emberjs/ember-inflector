@@ -1,4 +1,4 @@
-module("ember-inflector.integration",{
+module("ember-inflector.integration (String.prototype)",{
   setup: function(){
     Ember.Inflector.reset();
     Ember.Inflector.loadAll();
