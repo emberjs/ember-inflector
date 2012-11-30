@@ -1,15 +1,16 @@
 require('ember-inflector/system/string');
 
-var pluralize = Ember.String.pluralize,
-    singularize = Ember.String.singularize,
-    humanize = Ember.String.humanize,
-    titleize = Ember.String.titleize,
-    capitalize = Ember.String.capitalize,
-    tableize = Ember.String.tableize,
-    classify = Ember.String.classify;
-
 if (Ember.EXTEND_PROTOTYPES) {
     
+    var pluralize = Ember.String.pluralize,
+        singularize = Ember.String.singularize,
+        humanize = Ember.String.humanize,
+        titleize = Ember.String.titleize,
+        capitalize = Ember.String.capitalize,
+        tableize = Ember.String.tableize,
+        classify = Ember.String.classify,
+        initialize = Ember.String.initialize;
+
     /*
      * 
      */
@@ -57,5 +58,12 @@ if (Ember.EXTEND_PROTOTYPES) {
      */
     String.prototype.classify = function() {
        return classify(this, arguments);
+    };
+
+    /*
+     * 
+     */
+    String.prototype.initialize = function() {
+       return initialize(this, arguments);
     };
 }

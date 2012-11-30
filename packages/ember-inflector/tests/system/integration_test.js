@@ -61,3 +61,13 @@ test("classify", function(){
   equal(Ember.String.classify('words'),'Word');
   equal(Ember.String.classify('word table'),'WordTable');
 });
+
+test("initialize", function(){
+  expect(5);
+
+  equal(Ember.String.initialize(''),'');
+  equal(Ember.String.initialize('Tom Dale'),'TD');
+  equal(Ember.String.initialize('tom dale'),'TD');
+  equal(Ember.String.initialize('tom dale premier'),'TDP');
+  equal(Ember.String.initialize('tom dale 1er'),'TD');
+});

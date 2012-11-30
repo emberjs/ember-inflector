@@ -43,3 +43,8 @@ Ember.String.tableize = function(word) {
 Ember.String.classify = function(word) {
   return Ember.String.capitalize(Ember.String.camelize(Ember.String.singularize(word)));
 };
+
+Ember.String.initialize = function(word) {
+  var firstLetters = word.match(Ember.Inflector.FIRST_LETTERS_REGEX) || [];
+  return firstLetters.join('').toUpperCase();
+};

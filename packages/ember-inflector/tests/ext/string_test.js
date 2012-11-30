@@ -63,3 +63,13 @@ test("classify", function(){
   equal('words'.classify(),'Word');
   equal('word table'.classify(),'WordTable');
 });
+
+test("initialize", function(){
+  expect(5);
+
+  equal(''.initialize(),'');
+  equal('Tom Dale'.initialize(),'TD');
+  equal('tom dale'.initialize(),'TD');
+  equal('tom dale premier'.initialize(),'TDP');
+  equal('tom dale 1er'.initialize(),'TD');
+});
