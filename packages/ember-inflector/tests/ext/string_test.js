@@ -63,3 +63,11 @@ test("classify", function(){
   equal('words'.classify(),'Word');
   equal('word table'.classify(),'WordTable');
 });
+
+test("acronymize", function(){
+  expect(3);
+
+  equal(''.acronymize(),'');
+  equal('Java Script Object Notation'.acronymize(),'JSON');
+  equal('Java Script Object Notation 1'.acronymize(),'JSON');
+});

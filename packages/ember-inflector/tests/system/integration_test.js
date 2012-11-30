@@ -61,3 +61,11 @@ test("classify", function(){
   equal(Ember.String.classify('words'),'Word');
   equal(Ember.String.classify('word table'),'WordTable');
 });
+
+test("acronymize", function(){
+  expect(3);
+
+  equal(Ember.String.acronymize(''),'');
+  equal(Ember.String.acronymize('Java Script Object Notation'),'JSON');
+  equal(Ember.String.acronymize('Java Script Object Notation 1'),'JSON');
+});

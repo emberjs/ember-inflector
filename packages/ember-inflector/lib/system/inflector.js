@@ -1,5 +1,6 @@
 Ember.Inflector = {
   FIRST_LETTER_REGEX: /^\w/,
+  FIRST_LETTERS_REGEX: /\b[a-z]/gi,
   WHITESPACE_REGEX: /\s+/,
   KEY_SUFFIX_REGEX: /_id$/,
   BLANK_REGEX: /^\s*$/,
