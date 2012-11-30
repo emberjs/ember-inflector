@@ -9,7 +9,7 @@ if (Ember.EXTEND_PROTOTYPES) {
         capitalize = Ember.String.capitalize,
         tableize = Ember.String.tableize,
         classify = Ember.String.classify,
-        initialize = Ember.String.initialize;
+        acronymize = Ember.String.acronymize;
 
     /*
      * 
@@ -63,7 +63,7 @@ if (Ember.EXTEND_PROTOTYPES) {
     /*
      * 
      */
-    String.prototype.initialize = function() {
-       return initialize(this, arguments);
+    String.prototype.acronymize = function() {
+       return acronymize(this, arguments);
     };
 }

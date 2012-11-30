@@ -64,12 +64,10 @@ test("classify", function(){
   equal('word table'.classify(),'WordTable');
 });
 
-test("initialize", function(){
-  expect(5);
+test("acronymize", function(){
+  expect(3);
 
-  equal(''.initialize(),'');
-  equal('Tom Dale'.initialize(),'TD');
-  equal('tom dale'.initialize(),'TD');
-  equal('tom dale premier'.initialize(),'TDP');
-  equal('tom dale 1er'.initialize(),'TD');
+  equal(''.acronymize(),'');
+  equal('Java Script Object Notation'.acronymize(),'JSON');
+  equal('Java Script Object Notation 1'.acronymize(),'JSON');
 });

@@ -62,12 +62,10 @@ test("classify", function(){
   equal(Ember.String.classify('word table'),'WordTable');
 });
 
-test("initialize", function(){
-  expect(5);
+test("acronymize", function(){
+  expect(3);
 
-  equal(Ember.String.initialize(''),'');
-  equal(Ember.String.initialize('Tom Dale'),'TD');
-  equal(Ember.String.initialize('tom dale'),'TD');
-  equal(Ember.String.initialize('tom dale premier'),'TDP');
-  equal(Ember.String.initialize('tom dale 1er'),'TD');
+  equal(Ember.String.acronymize(''),'');
+  equal(Ember.String.acronymize('Java Script Object Notation'),'JSON');
+  equal(Ember.String.acronymize('Java Script Object Notation 1'),'JSON');
 });
