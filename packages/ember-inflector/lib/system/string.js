@@ -39,7 +39,3 @@ Ember.String.capitalize = function(word) {
 Ember.String.tableize = function(word) {
   return Ember.String.pluralize(Ember.String.underscore(word.toLowerCase()));
 };
-
-Ember.String.classify = function(word) {
-  return Ember.String.capitalize(Ember.String.camelize(Ember.String.singularize(word)));
-};

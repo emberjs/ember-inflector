@@ -54,12 +54,3 @@ test("tableize", function(){
   equal('word table'.tableize(),'word_tables');
   equal('Word Table'.tableize(),'word_tables');
 });
-
-test("classify", function(){
-  expect(4);
-
-  equal(''.classify(),'');
-  equal('word'.classify(),'Word');
-  equal('words'.classify(),'Word');
-  equal('word table'.classify(),'WordTable');
-});
