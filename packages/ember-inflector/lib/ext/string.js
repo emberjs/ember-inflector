@@ -5,7 +5,8 @@ var pluralize = Ember.String.pluralize,
     humanize = Ember.String.humanize,
     titleize = Ember.String.titleize,
     capitalize = Ember.String.capitalize,
-    tableize = Ember.String.tableize;
+    tableize = Ember.String.tableize,
+    classify = Ember.String.classify;
 
 if (Ember.EXTEND_PROTOTYPES) {
     
@@ -51,4 +52,10 @@ if (Ember.EXTEND_PROTOTYPES) {
        return tableize(this, arguments);
     };
 
+    /*
+     * 
+     */
+    String.prototype.classify = function() {
+       return classify(this, arguments);
+    };
 }

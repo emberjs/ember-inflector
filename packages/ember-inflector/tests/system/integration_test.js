@@ -52,3 +52,12 @@ test("tableize", function(){
   equal(Ember.String.tableize('word table'),'word_tables');
   equal(Ember.String.tableize('Word Table'),'word_tables');
 });
+
+test("classify", function(){
+  expect(4);
+
+  equal(Ember.String.classify(''),'');
+  equal(Ember.String.classify('word'),'Word');
+  equal(Ember.String.classify('words'),'Word');
+  equal(Ember.String.classify('word table'),'WordTable');
+});
