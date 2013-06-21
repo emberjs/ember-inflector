@@ -1,3 +1,10 @@
+Ember.INFLECTED_CLASSIFY = Ember.ENV.INFLECTED_CLASSIFY;
+
+if (typeof Ember.INFLECTED_CLASSIFY === 'undefined') {
+  Ember.INFLECTED_CLASSIFY = false;
+}
+
+
 Ember.String.pluralize = function(word) {
   return Ember.Inflector.inflect(word, Ember.Inflector.rules.plurals);
 };
@@ -40,6 +47,8 @@ Ember.String.tableize = function(word) {
   return Ember.String.pluralize(Ember.String.underscore(word.toLowerCase()));
 };
 
-Ember.String.classify = function(word) {
-  return Ember.String.capitalize(Ember.String.camelize(Ember.String.singularize(word)));
-};
+if (Ember.INFLECTED_CLASSIFY) {
+  Ember.String.classify = function(word) {
+    return Ember.String.capitalize(Ember.String.camelize(Ember.String.singularize(word)));
+  };
+}
