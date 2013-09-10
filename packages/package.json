@@ -1,16 +1,17 @@
 {
   "name": "ember-inflector",
-  "summary": "Ember String Inflections",
+  "summary": "Ember Inflections",
   "descrption": "",
-  "homepage": "http://github.com/stefanpenner/ember-inflector",
-  "author": "Stefan Penner",
-  "version": "0.0.1",
+  "homepage": "http://github.com/emberjs/ember.js",
+  "author": ["Stefan Penner"],
+  "version": "1.0.0-beta.1",
 
   "directories":{
     "lib": "lib"
   },
 
   "dependencies": {
+    "ember-runtime": "1.0.0"
   },
 
   "bpm:build": {
