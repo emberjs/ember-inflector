@@ -138,6 +138,7 @@ task :test, [:suite] => :dist do |t, args|
   success = true
   opts.each do |opt|
     cmd = "phantomjs tests/qunit/run-qunit.js \"file://localhost#{File.dirname(__FILE__)}/tests/index.html?#{opt}\""
+    puts cmd
     system(cmd)
 
     # A bit of a hack until we can figure this out on Travis
