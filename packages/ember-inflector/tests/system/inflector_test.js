@@ -58,9 +58,9 @@ test('ability to add identical singular and pluralizations',function(){
 
   equal(inflector.singularize('settings'),'settings','irregular singularization rule was applied on lowercase word');
   equal(inflector.pluralize('settings'),'settings','irregular pluralization rule was applied on lowercase word');
+
   equal(inflector.singularize('userPreferences'),'userPreferences','irregular singularization rule was applied on camelcase word');
   equal(inflector.pluralize('userPreferences'),'userPreferences','irregular pluralization rule was applied on camelcase word');
-
 });
 
 module('ember-inflector.unit');
