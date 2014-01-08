@@ -84,8 +84,7 @@ class VersionInfo < Rake::Pipeline::Filter
 end
 
 distros = {
-  :runtime => %w(ember-metal ember-runtime),
-  :full    => %w(ember-metal ember-runtime ember-application ember-views ember-states ember-routing ember-viewstates metamorph ember-handlebars)
+  :full    => %w(ember-inflector)
 }
 
 output "dist"
@@ -143,18 +142,12 @@ input "packages" do
 end
 
 distros.each do |name, modules|
-  name = name == :full ? "ember" : "ember-#{name}"
+  name = 'ember-inflector'
 
   input "dist/modules" do
     module_paths = modules.map{|m| "#{m}.js" }
     match "{#{module_paths.join(',')}}" do
       concat(module_paths){ ["#{name}.js", "#{name}.prod.js"] }
-    end
-
-    # Add debug to the main distro
-    match "{#{name}.js,ember-debug.js}" do
-      filter VersionInfo
-      concat ["ember-debug.js"], "#{name}.js"
     end
 
     # Strip dev code

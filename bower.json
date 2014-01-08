@@ -1,0 +1,21 @@
+{
+  "name": "ember-inflector",
+  "version": "0.01",
+  "main": [
+    "./ember-inflector.js"
+  ],
+  "ignore": [
+    "generators",
+    "lib",
+    "packages",
+    "tests",
+    "tmp",
+    "Assetfile",
+    "bower.json",
+    "config.ru",
+    "Gemfile",
+    "Gemfile.lock",
+    "Rakefile",
+    "VERSION"
+  ]
+}
