@@ -60,7 +60,8 @@ Ember.Inflector.defaultRules = {
     ['sex', 'sexes'],
     ['move', 'moves'],
     ['cow', 'kine'],
-    ['zombie', 'zombies']
+    ['zombie', 'zombies'],
+    ['valve', 'valves']
   ],
 
   uncountable: [
