@@ -103,6 +103,22 @@ test('singularization of irregulars', function(){
   equal(inflector.singularize('person'), 'person');
 });
 
+test('singularization of irregular singulars', function(){
+  expect(1);
+
+  var inflector = new Ember.Inflector({
+    singular: [
+      [/s$/i, ''],
+      [/(ss)$/i, '$1']
+    ],
+    irregularPairs: [
+      ['lens', 'lenses']
+    ]
+  });
+
+  equal(inflector.singularize('lens'), 'lens');
+});
+
 test('plural',function(){
   expect(1);
 
