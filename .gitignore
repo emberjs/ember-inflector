@@ -33,3 +33,4 @@ tmp*.gem
 tmp.bpm
 tmp.spade
 tests/source
+bower_components
