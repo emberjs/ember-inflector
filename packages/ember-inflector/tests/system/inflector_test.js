@@ -91,18 +91,6 @@ test('singularization',function(){
   equal(inflector.singularize('apple'), 'apple');
 });
 
-test('singularization of irregulars', function(){
-  expect(1);
-
-  var inflector = new Ember.Inflector({
-    irregularPairs: [
-      ['person', 'people']
-    ]
-  });
-
-  equal(inflector.singularize('person'), 'person');
-});
-
 test('singularization of irregular singulars', function(){
   expect(1);
 
@@ -117,6 +105,21 @@ test('singularization of irregular singulars', function(){
   });
 
   equal(inflector.singularize('lens'), 'lens');
+});
+
+test('pluralization of irregular plurals', function(){
+  expect(1);
+
+  var inflector = new Ember.Inflector({
+    plurals: [
+      [/$/,'s']
+    ],
+    irregularPairs: [
+      ['person', 'people']
+    ]
+  });
+
+  equal(inflector.pluralize('people'), 'people');
 });
 
 test('plural',function(){
