@@ -5,10 +5,9 @@
   <title>QUnit Test Suite</title>
   <link rel="stylesheet" href="qunit/qunit.css" type="text/css" media="screen">
   <script type="text/javascript" src="qunit/qunit.js"></script>
-  <script type="text/javascript" src="minispade.js"></script>
-  <script type="text/javascript" src="../lib/jquery-1.10.1.js"></script>
-  <script type="text/javascript" src="../lib/handlebars-1.0.0-rc.4.js"></script>
-  <script type="text/javascript" src="../lib/ember.js"></script>
+  <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="/bower_components/handlebars/handlebars.js"></script>
+  <script type="text/javascript" src="/bower_components/ember/ember.js"></script>
 
   <script type="text/javascript">
     // Tests should time out after 5 seconds
@@ -75,32 +74,9 @@
   <ol id="qunit-tests"></ol>
   <div id="qunit-fixture">test markup</div>
 
-  <script>
-    // Load jshint if being used (can cause failurs in old environments if always loaded)
-    if (jsHint) {
-      document.write('<script src="jshint.js"><\/script>');
-    }
-    // Close the script tag to make sure document.write happens
-  </script>
-
-  <script>
-    // Load ember distribution from query vars
-    var distMatch = location.search.match(/dist=([^&]+)/),
-        dist = (distMatch && distMatch[1]) || 'spade';
-
-    var distros = {
-      spade:   'ember-spade.js',
-      build:   'modules/ember-inflector.js',
-    };
-
-    var emberFile = distros[dist];
-    if (!emberFile) { throw 'Unknown dist'; }
-
-    document.write('<script src="../dist/'+emberFile+'"><\/script>');
-    // Close the script tag to make sure document.write happens
-  </script>
-
-  <script type="text/javascript" src="ember-tests.js"></script>
+  <script type="text/javascript" src="/dist/ember-inflector.js"></script>
+  <script type="text/javascript" src="/dist/ember-inflector.jshint.js"></script>
+  <script type="text/javascript" src="/dist/tests.js"></script>
 
   <script type="text/javascript">
 
@@ -117,59 +93,6 @@
 
     QUnit.jsDump.parsers.emberObject = function(obj) {
       return obj.toString();
-    }
-
-
-    // Load Tests and Depenencies
-    var packages = (QUnit.urlParams.package || "all").split(","),
-        packageName, el, idx, len, re, match, moduleName;
-
-    if (packages[0] === 'all') {
-      packages = [
-        'ember-inflector'
-      ];
-    }
-
-    len = packages.length;
-
-    // There is no require for this in the code
-    if (dist == 'spade') {
-      //minispade.require('ember-debug');
-    }
-
-    for (idx=0; idx<len; idx++) {
-      packageName = packages[idx];
-      re = new RegExp('^'+packageName+'/([^/]+)');
-
-      if (dist == 'spade') {
-        minispade.require(packageName);
-      }
-
-      for (moduleName in minispade.modules) {
-        if (!minispade.modules.hasOwnProperty(moduleName)) { continue; }
-
-        match = moduleName.match(re);
-        if (match) {
-          if (match[1] === '~tests') {
-            // Only require the actual tests since we already required the module
-            minispade.require(moduleName);
-          }
-
-          if (jsHint) {
-            // JSHint all modules in this package, tests and code
-            // (closure to preserve variable values)
-            (function() {
-              var jshintModule = moduleName;
-              module(jshintModule);
-              test('should pass jshint', function() {
-                var passed = JSHINT(minispade.modules[jshintModule], JSHINTRC),
-                    errors = jsHintReporter(jshintModule, JSHINT.errors);
-                ok(passed, jshintModule+" should pass jshint."+(errors ? "\n"+errors : ''));
-              });
-            })();
-          }
-        }
-      }
     }
   </script>
 

@@ -1,3 +1,4 @@
+import inflections from "ember-inflector/system/inflections";
 var BLANK_REGEX = /^\s*$/;
 
 function loadUncountable(rules, uncountable) {
@@ -201,4 +202,7 @@ Inflector.prototype = {
   }
 };
 
-Ember.Inflector = Inflector;
+Inflector.defaultRules = inflections;
+Inflector.inflector = new Inflector(inflections);
+
+export default Inflector;

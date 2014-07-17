@@ -1,3 +1,4 @@
+requireModule('ember-inflector');
 var inflector;
 module('ember-inflector.dsl', {
   setup: function() {
