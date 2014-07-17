@@ -2,7 +2,7 @@
   "name": "ember-inflector",
   "version": "1.0.0pre",
   "dependencies": {
-    "ember": "~1.6.0"
+    "ember": ">= 1.0.0 < 2.0.0"
   },
   "devDependencies": {
     "jquery": "~1.11.1",
