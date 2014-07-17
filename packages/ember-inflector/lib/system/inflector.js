@@ -12,8 +12,13 @@ function loadIrregular(rules, irregularPairs) {
   for (var i = 0, length = irregularPairs.length; i < length; i++) {
     pair = irregularPairs[i];
 
+    //pluralizing
     rules.irregular[pair[0].toLowerCase()] = pair[1];
+    rules.irregular[pair[1].toLowerCase()] = pair[1];
+
+    //singularizing
     rules.irregularInverse[pair[1].toLowerCase()] = pair[0];
+    rules.irregularInverse[pair[0].toLowerCase()] = pair[0];
   }
 }
 
