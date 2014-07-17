@@ -22,7 +22,8 @@
         "strictEqual",
         "module",
         "expect",
-        "minispade"
+        "minispade",
+        "define"
     ],
 
     "node" : false,

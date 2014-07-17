@@ -9,6 +9,7 @@ var merge         = require('broccoli-merge-trees');
 var moveFile      = require('broccoli-file-mover');
 var removeFile    = require('broccoli-file-remover');
 var wrap          = require('broccoli-wrap');
+var jshint        = require('broccoli-jshint');
 
 var libTree = removeFile('packages', {
   srcFile: '/ember-inflector/lib/main.js'
@@ -20,13 +21,14 @@ libTree = pickFiles(libTree, {
   destDir: '/ember-inflector'
 });
 
-
 var movedTree = moveFile('packages', {
   srcFile: 'ember-inflector/lib/main.js',
   destFile: '/ember-inflector.js'
 });
 
-libTree = merge([movedTree, libTree]);
+libTree = es6(merge([movedTree, libTree]), {
+  moduleName: true
+});
 
 var loaderJS = pickFiles('bower_components/loader.js', {
   srcDir: '/',
@@ -34,7 +36,7 @@ var loaderJS = pickFiles('bower_components/loader.js', {
   files: [ 'loader.js' ]
 });
 
-var es6Tree = merge([loaderJS, es6(libTree, {moduleName: true})]);
+var es6Tree = merge([loaderJS, libTree]);
 
 var namedAMD = concat(es6Tree, {
   inputFiles: [ 'ember-inflector.js', '**/*.js' ],
@@ -46,16 +48,14 @@ var globalsBuild = concat(es6Tree, {
   outputFile: '/ember-inflector.js'
 });
 
-globalsBuild = wrap(globalsBuild, {
-  wrapper: [ "(function(){\n", "\n})();"]
-});
-
 var testTree = concat('packages', {
   inputFiles: [ 'ember-inflector/tests/**/*.js' ],
   outputFile: '/tests.js',
   wrapInEval: true,
   wrapInFunction: true
 });
+
+testTree = merge([ jshint(libTree), testTree ]);
 
 var trees = merge([ globalsBuild, namedAMD, testTree ]);
 
@@ -68,8 +68,8 @@ if (env === 'production') {
     srcFile: '/ember-inflector.js',
     destFile: '/ember-inflector.min.js'
   });
-  var cjs = removeFile(libTree, {
-    srcFile: 'loader.js'
+  minifiedGlobalsBuild = wrap(minifiedGlobalsBuild, {
+    wrapper: [ "(function(){\n", "\n})();"]
   });
   trees = merge([ trees, minifiedAMD, minifiedGlobalsBuild ]);
 }

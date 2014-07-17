@@ -45,6 +45,6 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('server', ['broccoli:dev:build', 'connect:dev', 'concurrent:broccoli']);
-  grunt.registerTask('default', ['broccoli:prod:build', 'connect:dev', 'qunit:all']);
+  grunt.registerTask('server', ['clean', 'broccoli:dev:build', 'connect:dev', 'concurrent:broccoli']);
+  grunt.registerTask('default', ['clean', 'broccoli:prod:build', 'connect:dev', 'qunit:all']);
 };
