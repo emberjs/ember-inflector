@@ -1,7 +1,11 @@
-Ember.String.pluralize = function(word) {
-  return Ember.Inflector.inflector.pluralize(word);
+import Inflector from "ember-inflector/system/inflector";
+
+function pluralize(word) {
+  return Inflector.inflector.pluralize(word);
 };
 
-Ember.String.singularize = function(word) {
-  return Ember.Inflector.inflector.singularize(word);
+function singularize(word) {
+  return Inflector.inflector.singularize(word);
 };
+
+export {pluralize, singularize};
