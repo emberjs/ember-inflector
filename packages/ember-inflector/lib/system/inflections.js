@@ -1,4 +1,4 @@
-var inflections = {
+var defaultRules = {
   plurals: [
     [/$/, 's'],
     [/s$/i, 's'],
@@ -77,4 +77,4 @@ var inflections = {
   ]
 };
 
-export default inflections;
+export default defaultRules;
