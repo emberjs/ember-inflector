@@ -8,4 +8,7 @@ function singularize(word) {
   return Inflector.inflector.singularize(word);
 }
 
-export {pluralize, singularize};
+export {
+  pluralize,
+  singularize
+};

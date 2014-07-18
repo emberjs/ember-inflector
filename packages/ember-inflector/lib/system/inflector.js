@@ -82,28 +82,89 @@ function loadIrregular(rules, irregularPairs) {
 */
 function Inflector(ruleSet) {
   ruleSet = ruleSet || {};
-  ruleSet.uncountable = ruleSet.uncountable || {};
-  ruleSet.irregularPairs = ruleSet.irregularPairs || {};
+  ruleSet.uncountable = ruleSet.uncountable || makeDictionary();
+  ruleSet.irregularPairs = ruleSet.irregularPairs || makeDictionary();
 
   var rules = this.rules = {
     plurals:  ruleSet.plurals || [],
     singular: ruleSet.singular || [],
-    irregular: {},
-    irregularInverse: {},
-    uncountable: {}
+    irregular: makeDictionary(),
+    irregularInverse: makeDictionary(),
+    uncountable: makeDictionary()
   };
 
   loadUncountable(rules, ruleSet.uncountable);
   loadIrregular(rules, ruleSet.irregularPairs);
+
+  this.enableCache();
+}
+
+function makeDictionary() {
+  var cache = Object.create(null);
+  cache['_dict'] = null;
+  delete cache['_dict'];
+  return cache;
 }
 
 Inflector.prototype = {
+  /**
+    @public
+
+    As inflections can be costly, and commonly the same subset of words are repeatedly
+    inflected an optional cache is provided.
+
+    @method enableCache
+  */
+  enableCache: function() {
+    this.purgeCache();
+
+    this.singularize = function(word) {
+      this._cacheUsed = true;
+      return this._sCache[word] || (this._sCache[word] = this._singularize(word));
+    };
+
+    this.pluralize = function(word) {
+      this._cacheUsed = true;
+      return this._pCache[word] || (this._pCache[word] = this._pluralize(word));
+    };
+  },
+
+  /**
+    @public
+
+    @method purgedCache
+  */
+  purgeCache: function() {
+    this._cacheUsed = false;
+    this._sCache = makeDictionary();
+    this._pCache = makeDictionary();
+  },
+
+  /**
+    @public
+    disable caching
+
+    @method disableCache;
+  */
+  disableCache: function() {
+    this._sCache = null;
+    this._pCache = null;
+    this.singularize = function(word) {
+      return this._singularize(word);
+    };
+
+    this.pluralize = function(word) {
+      return this._pluralize(word);
+    };
+  },
+
   /**
     @method plural
     @param {RegExp} regex
     @param {String} string
   */
   plural: function(regex, string) {
+    if (this._cacheUsed) { this.purgeCache(); }
     this.rules.plurals.push([regex, string.toLowerCase()]);
   },
 
@@ -113,6 +174,7 @@ Inflector.prototype = {
     @param {String} string
   */
   singular: function(regex, string) {
+    if (this._cacheUsed) { this.purgeCache(); }
     this.rules.singular.push([regex, string.toLowerCase()]);
   },
 
@@ -121,6 +183,7 @@ Inflector.prototype = {
     @param {String} regex
   */
   uncountable: function(string) {
+    if (this._cacheUsed) { this.purgeCache(); }
     loadUncountable(this.rules, [string.toLowerCase()]);
   },
 
@@ -130,6 +193,7 @@ Inflector.prototype = {
     @param {String} plural
   */
   irregular: function (singular, plural) {
+    if (this._cacheUsed) { this.purgeCache(); }
     loadIrregular(this.rules, [[singular, plural]]);
   },
 
@@ -138,14 +202,21 @@ Inflector.prototype = {
     @param {String} word
   */
   pluralize: function(word) {
-    return this.inflect(word, this.rules.plurals, this.rules.irregular);
+    return this._pluralize(word);
   },
 
+  _pluralize: function(word) {
+    return this.inflect(word, this.rules.plurals, this.rules.irregular);
+  },
   /**
     @method singularize
     @param {String} word
   */
   singularize: function(word) {
+    return this._singularize(word);
+  },
+
+  _singularize: function(word) {
     return this.inflect(word, this.rules.singular,  this.rules.irregularInverse);
   },
 
