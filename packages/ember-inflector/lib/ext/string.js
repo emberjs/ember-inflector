@@ -1,8 +1,5 @@
 import {pluralize, singularize} from "ember-inflector/system/string";
 
-Ember.String.pluralize = pluralize;
-Ember.String.singularize = singularize;
-
 if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   /**
     See {{#crossLink "Ember.String/pluralize"}}{{/crossLink}}
