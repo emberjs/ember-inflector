@@ -55,7 +55,24 @@ var testTree = concat('packages', {
   wrapInFunction: true
 });
 
-testTree = merge([ jshint(libTree), testTree ]);
+var testRunner = pickFiles('tests', {
+  srcDir: '/',
+  inputFiles: [ '**/*' ],
+  destDir: '/'
+});
+
+var bowerComponents = pickFiles('bower_components', {
+  srcDir: '/',
+  inputFiles: [ '**/*' ],
+  destDir: '/bower_components'
+});
+
+var jshinted = concat(jshint(libTree), {
+  inputFiles: [ '**/*.jshint.js' ],
+  outputFile: '/ember-inflector.jshint.js'
+});
+
+testTree = merge([ jshinted, testTree, testRunner, bowerComponents ]);
 
 var trees = merge([ globalsBuild, namedAMD, testTree ]);
 
