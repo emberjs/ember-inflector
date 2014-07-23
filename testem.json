@@ -1,0 +1,15 @@
+{
+  "test_page": "dist/index.html",
+  "src_files": [
+    "dist/tests/**/*.js"
+  ],
+  "serve_files": [
+    "dist/**/*.js"
+  ],
+  "routes": {
+     "/ember-inflector.js": "dist/ember-inflector.js",
+     "/ember-inflector.jshint.js": "dist/ember-inflector.jshint.js",
+     "/tests.js": "dist/tests.js"
+  },
+  "launch_in_ci": [ "PhantomJS" ]
+}

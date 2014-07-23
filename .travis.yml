@@ -1,5 +1,6 @@
 before_script:
-  - npm install -g bower grunt-cli
+  - npm install -g bower broccoli-cli testem
   - bower install
   - npm install
-script: "grunt"
+  - broccoli build dist
+script: "npm test"
