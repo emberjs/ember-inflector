@@ -1,9 +1,9 @@
-import Inflector from "ember-inflector/system/inflector";
+import Inflector from "./system/inflector";
 import {
   pluralize,
   singularize
-} from "ember-inflector/system/string";
-import defaultRules from "ember-inflector/system/inflections";
+} from "./system/string";
+import defaultRules from "./system/inflections";
 
 Inflector.inflector = new Inflector(defaultRules);
 
