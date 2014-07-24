@@ -1,4 +1,4 @@
-import Inflector from "ember-inflector/system/inflector";
+import Inflector from "./inflector";
 
 function pluralize(word) {
   return Inflector.inflector.pluralize(word);
