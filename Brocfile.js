@@ -74,14 +74,17 @@ var jshinted = concat(jshint(libTree), {
 
 testTree = merge([ jshinted, testTree, testRunner, bowerComponents ]);
 
-var trees = merge([ globalsBuild, namedAMD, testTree ]);
+var trees;
 
 if (env === 'production') {
-  var minifiedAMD = moveFile(uglify(es3SafeRecast(namedAMD)), {
+  namedAMD = es3SafeRecast(namedAMD);
+  globalsBuild = es3SafeRecast(globalsBuild);
+  testTree = es3SafeRecast(testTree);
+  var minifiedAMD = moveFile(uglify(namedAMD), {
     srcFile: '/ember-inflector.named-amd.js',
     destFile: '/ember-inflector.named-amd.min.js'
   });
-  var minifiedGlobalsBuild = moveFile(uglify(es3SafeRecast(globalsBuild)), {
+  var minifiedGlobalsBuild = moveFile(uglify(globalsBuild), {
     srcFile: '/ember-inflector.js',
     destFile: '/ember-inflector.min.js'
   });
@@ -89,6 +92,8 @@ if (env === 'production') {
     wrapper: [ "(function(){\n", "\n})();"]
   });
   trees = merge([ trees, minifiedAMD, minifiedGlobalsBuild ]);
+} else {
+  trees = merge([ globalsBuild, namedAMD, testTree ]);
 }
 
 module.exports = trees;
