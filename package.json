@@ -24,6 +24,6 @@
     "start": "ember s",
     "bower": "bower install",
     "build": "ember build",
-    "test": "testem ci"
+    "test": "testem ci -R dot"
   }
 }
