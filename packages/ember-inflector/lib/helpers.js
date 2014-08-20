@@ -23,11 +23,25 @@ Ember.Handlebars.helper('singularize', singularize);
  *
  * Example:
  *
+ * {{pluralize count myProperty}}
+ * {{pluralize 1 "oxen"}}
  * {{pluralize myProperty}}
- * {{pluralize "oxen"}}
+ * {{pluralize "ox"}}
  *
  * @for Ember.Handlebars.helpers
  * @method pluralize
+ * @param {Number|Property|} [count] count of objects
  * @param {String|Property} word word to pluralize
 */
-Ember.Handlebars.helper('pluralize', pluralize);
+Ember.Handlebars.helper('pluralize', function(count, word, options) {
+  if(arguments.length < 3) {
+    return pluralize(count);
+  } else {
+    /* jshint eqeqeq: false */
+    if(count != 1) {
+      /* jshint eqeqeq: true */
+      word = pluralize(word);
+    }
+    return count + " " + word;
+  }
+});
