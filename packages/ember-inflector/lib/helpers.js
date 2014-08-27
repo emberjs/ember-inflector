@@ -30,7 +30,7 @@ Ember.Handlebars.helper('singularize', singularize);
  *
  * @for Ember.Handlebars.helpers
  * @method pluralize
- * @param {Number|Property|} [count] count of objects
+ * @param {Number|Property} [count] count of objects
  * @param {String|Property} word word to pluralize
 */
 Ember.Handlebars.helper('pluralize', function(count, word, options) {
