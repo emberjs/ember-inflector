@@ -47,7 +47,6 @@ module("ember-inflector.integration - Handlebars Helpers", {
 
       appendView(view);
       text = $("#qunit-fixture").text();
-      console.log(text);
     });
   },
 

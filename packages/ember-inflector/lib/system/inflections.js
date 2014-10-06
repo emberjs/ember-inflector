@@ -74,7 +74,6 @@ export default {
     'fish',
     'sheep',
     'jeans',
-    'police',
-    'moose'
+    'police'
   ]
 };
