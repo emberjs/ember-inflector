@@ -3,8 +3,8 @@ export default {
     [/$/, 's'],
     [/s$/i, 's'],
     [/^(ax|test)is$/i, '$1es'],
-    [/(octop|vir)us$/i, '$1i'],
-    [/(octop|vir)i$/i, '$1i'],
+    [/(vir)us|i$/i, '$1i'],
+    [/(octop)us|odes$/i, '$1odes'],
     [/(alias|status)$/i, '$1es'],
     [/(bu)s$/i, '$1ses'],
     [/(buffal|tomat)o$/i, '$1oes'],
@@ -44,7 +44,8 @@ export default {
     [/(shoe)s$/i, '$1'],
     [/(cris|test)(is|es)$/i, '$1is'],
     [/^(a)x[ie]s$/i, '$1xis'],
-    [/(octop|vir)(us|i)$/i, '$1us'],
+    [/(vir)(us|i)$/i, '$1us'],
+    [/(octop)(us|odes)$/i, '$1us'],
     [/(alias|status)(es)?$/i, '$1'],
     [/^(ox)en/i, '$1'],
     [/(vert|ind)ices$/i, '$1ex'],
@@ -73,6 +74,7 @@ export default {
     'fish',
     'sheep',
     'jeans',
-    'police'
+    'police',
+    'moose'
   ]
 };

@@ -13,7 +13,7 @@ test("pluralize", function(){
 
   equal(Ember.String.pluralize('word'),     'words');
   equal(Ember.String.pluralize('ox'),       'oxen');
-  equal(Ember.String.pluralize('octopus'),  'octopi');
+  equal(Ember.String.pluralize('octopus'),  'octopodes');
 });
 
 test("singularize", function(){
@@ -21,7 +21,7 @@ test("singularize", function(){
 
   equal(Ember.String.singularize('words'),  'word');
   equal(Ember.String.singularize('oxen'),   'ox');
-  equal(Ember.String.singularize('octopi'), 'octopus');
+  equal(Ember.String.singularize('octopodes'), 'octopus');
 });
 
 module("ember-inflector.integration - Handlebars Helpers", {
@@ -32,7 +32,7 @@ module("ember-inflector.integration - Handlebars Helpers", {
       view = Ember.View.create({
         template: Ember.Handlebars.compile("{{singularize plural}} {{pluralize single}} {{pluralize 1 singleArg}} {{pluralize 2 multiple}} {{pluralize one boundSingle}} {{pluralize oneString boundSingleString}} {{pluralize two boundMultiple}}"),
         context: {
-          plural: "octopi",
+          plural: "octopodes",
           single: "ox",
           singleArg: "opossums",
           multiple: "ocelot",
@@ -47,6 +47,7 @@ module("ember-inflector.integration - Handlebars Helpers", {
 
       appendView(view);
       text = $("#qunit-fixture").text();
+      console.log(text);
     });
   },
 
