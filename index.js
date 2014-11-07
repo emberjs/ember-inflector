@@ -10,14 +10,16 @@ function unwatchedTree(dir) {
 module.exports = {
     name: 'ember-inflector',
     
-    treeForVendor: function(){
-        var treePath =  path.join(' node_modules', 'ember-inflector', 'dist' );
+    treeFor: function(){
+        if (name !== 'vendor') { return; }
+        
+        var treePath =  path.join( 'node_modules', 'ember-inflector', 'dist' );
 
         return unwatchedTree(treePath);
     },
 
     included: function(){
-        this.app.import('vendor/ember-inflector/ember-inflector.named-amd.js', {
+        this.app.import('vendor/ember-inflector.named-amd.js', {
         exports: {
                 'ember-inflector': [
                     'default',
