@@ -16,7 +16,7 @@
     "broccoli-transform": "^0.1.1",
     "broccoli-uglify-js": "^0.1.3",
     "broccoli-wrap": "0.0.2",
-    "ember-cli": "0.0.40",
+    "ember-cli": "0.1.2",
     "matchdep": "^0.3.0",
     "testem": "^0.6.17"
   },
