@@ -10,9 +10,9 @@ function unwatchedTree(dir) {
 module.exports = {
     name: 'ember-inflector',
     
-    treeFor: function(){
+    treeFor: function( name ){
         if (name !== 'vendor') { return; }
-        
+
         var treePath =  path.join( 'node_modules', 'ember-inflector', 'dist' );
 
         return unwatchedTree(treePath);
