@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 function unwatchedTree(dir) {
   return {
     read:    function() { return dir; },
