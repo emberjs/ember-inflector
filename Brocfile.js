@@ -30,13 +30,7 @@ libTree = es6(merge([movedTree, libTree]), {
   moduleName: true
 });
 
-var loaderJS = pickFiles('bower_components/loader.js', {
-  srcDir: '/',
-  destDir: '/',
-  files: [ 'loader.js' ]
-});
-
-var es6Tree = merge([loaderJS, libTree]);
+var es6Tree = merge([libTree]);
 
 var namedAMD = concat(es6Tree, {
   inputFiles: [ 'ember-inflector.js', '**/*.js' ],
@@ -44,7 +38,7 @@ var namedAMD = concat(es6Tree, {
 });
 
 var globalsBuild = concat(es6Tree, {
-  inputFiles: [ 'loader.js', 'ember-inflector.js', '**/*.js' ],
+  inputFiles: [ 'ember-inflector.js', '**/*.js' ],
   outputFile: '/ember-inflector.js'
 });
 
