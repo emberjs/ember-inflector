@@ -1,3 +1,5 @@
+var capitalize = Ember.String.capitalize;
+
 var BLANK_REGEX = /^\s*$/;
 var LAST_WORD_DASHED_REGEX = /(\w+[_-])([a-z\d]+$)/;
 var LAST_WORD_CAMELIZED_REGEX = /(\w+)([A-Z][a-z\d]*$)/;
@@ -237,9 +239,9 @@ Inflector.prototype = {
   */
   inflect: function(word, typeRules, irregular) {
     var inflection, substitution, result, lowercase, wordSplit,
-      firstPhrase, lastWord, isBlank, isCamelized, isUncountable, 
+      firstPhrase, lastWord, isBlank, isCamelized, isUncountable,
       isIrregular, isIrregularInverse, rule;
-  
+
     isBlank = BLANK_REGEX.test(word);
     isCamelized = CAMELIZED_REGEX.test(word);
     firstPhrase = "";
@@ -268,7 +270,7 @@ Inflector.prototype = {
         return isIrregular;
       }
       else {
-        isIrregular = (isCamelized) ? isIrregular.capitalize() : isIrregular;
+        isIrregular = (isCamelized) ? capitalize(isIrregular) : isIrregular;
         return firstPhrase + isIrregular;
       }
     }
