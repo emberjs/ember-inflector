@@ -26,4 +26,6 @@ if (typeof 'define' !== 'undefined' && define.amd){
     __exports__['default'] = Inflector;
     return Inflector;
   });
+} else if (typeof module !== 'undefined' && module['exports']){
+  module['exports'] = Inflector;
 }
