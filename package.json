@@ -27,5 +27,8 @@
     "bower": "bower install",
     "build": "ember build",
     "test": "testem ci -R dot"
+  },
+  "ember-addon": {
+    "main": "lib/ember-addon/index.js"
   }
 }
