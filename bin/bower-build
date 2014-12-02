@@ -36,8 +36,8 @@ echo -e "CHANNEL: ${CHANNEL}\n"
 git clone --branch ${CHANNEL} https://${USER}:${GH_TOKEN}@github.com/${COMPONENTS_EMBER_REPO_SLUG}.git bower_ember &> /dev/null
 rm -rf bower_ember/*
 cp -r ${INCLUDED_FILES} bower_ember/
-cp package.json bower_ember/
-cp bower.json bower_ember/
+cp package.json bower_ember
+cp bower.json bower_ember
 cd bower_ember
 git remote rm origin
 
