@@ -32,8 +32,6 @@ case $TRAVIS_BRANCH in
 esac
 echo -e "CHANNEL: ${CHANNEL}\n"
 
-[ -z "$GH_TOKEN" ] || (echo "No GH_TOKEN present. Exiting. " && exit 0)
-
 # sending output to /dev/null to prevent GH_TOKEN leak on error
 git clone --branch ${CHANNEL} https://${USER}:${GH_TOKEN}@github.com/${COMPONENTS_EMBER_REPO_SLUG}.git bower_ember &> /dev/null
 rm -rf bower_ember/*
