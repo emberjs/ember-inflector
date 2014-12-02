@@ -1,5 +1,6 @@
 var broccoli      = require('broccoli');
 var es6           = require('broccoli-es6-module-transpiler');
+var EmberResolver = require('es6-module-transpiler-package-resolver');
 var concat        = require('broccoli-concat');
 var uglify        = require('broccoli-uglify-js');
 var es3SafeRecast = require('broccoli-es3-safe-recast');
@@ -10,42 +11,19 @@ var moveFile      = require('broccoli-file-mover');
 var removeFile    = require('broccoli-file-remover');
 var wrap          = require('broccoli-wrap');
 var jshint        = require('broccoli-jshint');
+var path          = require('path');
 
-var libTree = removeFile('packages', {
-  srcFile: '/ember-inflector/lib/main.js'
-});
 
-libTree = pickFiles(libTree, {
-  srcDir: '/ember-inflector/lib',
-  files: [ '**/*.js' ],
+var libTree = pickFiles('packages/ember-inflector', {
+  files: ['lib/**/*.js'],
+  srcDir: '/',
   destDir: '/ember-inflector'
 });
 
-var movedTree = moveFile('packages', {
-  srcFile: 'ember-inflector/lib/main.js',
-  destFile: '/ember-inflector.js'
-});
-
-libTree = es6(merge([movedTree, libTree]), {
-  moduleName: true
-});
-
-var loaderJS = pickFiles('bower_components/loader.js', {
-  srcDir: '/',
-  destDir: '/',
-  files: [ 'loader.js' ]
-});
-
-var es6Tree = merge([loaderJS, libTree]);
-
-var namedAMD = concat(es6Tree, {
-  inputFiles: [ 'ember-inflector.js', '**/*.js' ],
-  outputFile: '/ember-inflector.named-amd.js'
-});
-
-var globalsBuild = concat(es6Tree, {
-  inputFiles: [ 'loader.js', 'ember-inflector.js', '**/*.js' ],
-  outputFile: '/ember-inflector.js'
+var globalsBuild = es6(libTree,{
+  format: 'bundle',
+  output: '/ember-inflector.js',
+  formatters: [EmberResolver]
 });
 
 var testTree = concat('packages', {
@@ -67,7 +45,11 @@ var bowerComponents = pickFiles('bower_components', {
   destDir: '/bower_components'
 });
 
-var jshinted = concat(jshint(libTree), {
+var jsHintOptions = {
+  jshintrcPath: path.join(__dirname, '.jshintrc')
+};
+
+var jshinted = concat(jshint(libTree, jsHintOptions), {
   inputFiles: [ '**/*.jshint.js' ],
   outputFile: '/ember-inflector.jshint.js'
 });
@@ -77,23 +59,15 @@ testTree = merge([ jshinted, testTree, testRunner, bowerComponents ]);
 var trees;
 
 if (env === 'production') {
-  namedAMD = es3SafeRecast(namedAMD);
   globalsBuild = es3SafeRecast(globalsBuild);
   testTree = es3SafeRecast(testTree);
-  var minifiedAMD = moveFile(uglify(namedAMD), {
-    srcFile: '/ember-inflector.named-amd.js',
-    destFile: '/ember-inflector.named-amd.min.js'
-  });
   var minifiedGlobalsBuild = moveFile(uglify(globalsBuild), {
     srcFile: '/ember-inflector.js',
     destFile: '/ember-inflector.min.js'
   });
-  minifiedGlobalsBuild = wrap(minifiedGlobalsBuild, {
-    wrapper: [ "(function(){\n", "\n})();"]
-  });
-  trees = merge([ trees, minifiedAMD, minifiedGlobalsBuild ]);
+  trees = merge([ trees, minifiedGlobalsBuild, testTree ]);
 } else {
-  trees = merge([ globalsBuild, namedAMD, testTree ]);
+  trees = merge([ globalsBuild, testTree ]);
 }
 
 module.exports = trees;
