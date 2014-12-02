@@ -5,4 +5,4 @@ env:
   global:
     secure: DBzfaR7q4J+dRPQ/b8xRzfDXeAJUdUMKsiwTYTvrGz9n+N2Oyf91EhU11HXQ5h7V3AX6ATIF4QJ3EXjBdTAa7q7Ss+xQM3Oag/KaMjEdG3PK5pG8KNbXyFKuvKZRKm6R/6sJA924gqLECfOpvw2fHVQyZhOirKft2GLPJL62VDs=
 after_success:
-  - bin/bower_build
+  - "./bin/bower_build"
