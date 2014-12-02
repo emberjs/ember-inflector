@@ -18,7 +18,8 @@ export default Inflector;
 
 export {
   pluralize,
-  singularize
+  singularize,
+  defaultRules
 };
 
 if (typeof 'define' !== 'undefined' && define.amd){
