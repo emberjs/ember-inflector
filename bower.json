@@ -6,8 +6,9 @@
   },
   "devDependencies": {
     "jquery": "~1.11.1",
-    "handlebars": "~1.3.0",
-    "loader.js": "~1.0.0"
+    "handlebars": "~2.0.0",
+    "loader.js": "~1.0.0",
+    "ember": "components/ember#canary"
   },
   "ignore": [
     "dist/ember-inflector.jshint.js",
