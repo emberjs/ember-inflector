@@ -22,7 +22,7 @@ export {
   defaultRules
 };
 
-if (typeof 'define' !== 'undefined' && define.amd){
+if (typeof define !== 'undefined' && define.amd){
   define('ember-inflector', ['exports'], function(__exports__){
     __exports__['default'] = Inflector;
     return Inflector;
