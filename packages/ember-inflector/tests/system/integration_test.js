@@ -25,7 +25,7 @@ test("singularize", function(){
   equal(Ember.String.singularize('octopi'), 'octopus');
 });
 
-module("ember-inflector.integration - " + isHTMLBars ? "HTMLBars" : "Handlebars" + " Helpers", {
+module("ember-inflector.integration - " + (isHTMLBars ? "HTMLBars" : "Handlebars") + " Helpers", {
   setup: function(){
     Ember.lookup = lookup = {Ember: Ember};
     var compile = (Ember.HTMLBars || Ember.Handlebars).compile;
