@@ -1,6 +1,7 @@
 var run = Ember.run;
 var view, lookup, text;
 var originalLookup = Ember.lookup;
+var isHTMLBars = !!Ember.HTMLBars;
 
 function appendView(view) {
   run(function() { view.appendTo('#qunit-fixture'); });
@@ -24,13 +25,14 @@ test("singularize", function(){
   equal(Ember.String.singularize('octopi'), 'octopus');
 });
 
-module("ember-inflector.integration - Handlebars Helpers", {
-
+module("ember-inflector.integration - " + (isHTMLBars ? "HTMLBars" : "Handlebars") + " Helpers", {
   setup: function(){
     Ember.lookup = lookup = {Ember: Ember};
+    var compile = (Ember.HTMLBars || Ember.Handlebars).compile;
+
     run(function(){
       view = Ember.View.create({
-        template: Ember.Handlebars.compile("{{singularize plural}} {{pluralize single}} {{pluralize 1 singleArg}} {{pluralize 2 multiple}} {{pluralize one boundSingle}} {{pluralize oneString boundSingleString}} {{pluralize two boundMultiple}}"),
+        template: compile("{{singularize plural}} {{pluralize single}} {{pluralize 1 singleArg}} {{pluralize 2 multiple}} {{pluralize one boundSingle}} {{pluralize oneString boundSingleString}} {{pluralize two boundMultiple}}"),
         context: {
           plural: "octopi",
           single: "ox",

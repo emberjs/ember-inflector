@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <title>QUnit Test Suite</title>
   <link rel="stylesheet" href="qunit/qunit.css" type="text/css" media="screen">
+  <script type="text/javascript">
+    EmberENV = {
+      FEATURES: {
+        // Don't uncomment this feature flag. It's uncommented automatically in travis.
+        //'ember-htmlbars': true
+      }
+    };
+  </script>
   <script type="text/javascript" src="qunit/qunit.js"></script>
   <script src="/testem.js"></script>
   <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
@@ -37,9 +45,6 @@
       return str + "\n" + len + ' error' + ((len === 1) ? '' : 's');
     }
 
-    //window.Ember = {
-    //  testing: true
-    //}
     window.ENV = window.ENV || {};
 
     // Handle extending prototypes
