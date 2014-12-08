@@ -27,5 +27,5 @@ singularize("tacos"); // taco
 pluralize("taco"); // tacos
 
 // or if not using Ember CLI/ES6
-Ember.Inflector.pluralize("taco"); // taco
+Ember.Inflector.pluralize("taco"); // tacos
 ```
