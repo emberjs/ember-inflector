@@ -310,6 +310,7 @@ test('multiword uncountable no defaults', function(){
 test('multiword uncountable basic s singularization rule', function(){
   var inflector = new Ember.Inflector({singular: [[/s$/i, '']]});
   inflector.uncountable('blue-moons');
+  expect(4);
 
   equal(inflector.singularize('blue-moons'), 'blue-moons');
   equal(inflector.singularize('blue_moons'), 'blue_moons');
@@ -322,6 +323,7 @@ test('multiword uncountable basic s singularization rule define all', function()
   inflector.uncountable('blue-moons');
   inflector.uncountable('blue_moons');
   inflector.uncountable('BlueMoons');
+  expect(4);
 
   equal(inflector.singularize('blue-moons'), 'blue-moons');
   equal(inflector.singularize('blue_moons'), 'blue_moons');
