@@ -295,3 +295,37 @@ test('new Ember.Inflector with defaultRules matches docs', function(){
   // defaultRules removes 's' from plural
   equal(inflector.singularize('items'), 'item');
 });
+
+test('multiword uncountable no defaults', function(){
+  var inflector = new Ember.Inflector({});
+  inflector.uncountable('blue-moons');
+  expect(4);
+
+  equal(inflector.singularize('blue-moons'), 'blue-moons');
+  equal(inflector.singularize('blue_moons'), 'blue_moons');
+  equal(inflector.singularize('blueMoons'), 'blueMoons');
+  equal(inflector.singularize('BlueMoons'), 'BlueMoons');
+});
+
+test('multiword uncountable basic s singularization rule', function(){
+  var inflector = new Ember.Inflector({singular: [[/s$/i, '']]});
+  inflector.uncountable('blue-moons');
+
+  equal(inflector.singularize('blue-moons'), 'blue-moons');
+  equal(inflector.singularize('blue_moons'), 'blue_moons');
+  equal(inflector.singularize('blueMoons'), 'blueMoons');
+  equal(inflector.singularize('BlueMoons'), 'BlueMoons');
+});
+
+test('multiword uncountable basic s singularization rule define all', function(){
+  var inflector = new Ember.Inflector({singular: [[/s$/i, '']]});
+  inflector.uncountable('blue-moons');
+  inflector.uncountable('blue_moons');
+  inflector.uncountable('BlueMoons');
+
+  equal(inflector.singularize('blue-moons'), 'blue-moons');
+  equal(inflector.singularize('blue_moons'), 'blue_moons');
+  equal(inflector.singularize('blueMoons'), 'blueMoons');
+  equal(inflector.singularize('BlueMoons'), 'BlueMoons');
+});
+
