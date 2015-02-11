@@ -15,9 +15,9 @@ if (Ember.HTMLBars) {
    * @method singularize
    * @param {String|Property} word word to singularize
   */
-  Ember.HTMLBars.helper('singularize', function(params){
+  Ember.HTMLBars._registerHelper('singularize', Ember.HTMLBars.makeBoundHelper(function(params){
     return singularize(params[0]);
-  });
+  }));
 
   /**
    *
@@ -36,7 +36,7 @@ if (Ember.HTMLBars) {
    * @param {Number|Property} [count] count of objects
    * @param {String|Property} word word to pluralize
   */
-  Ember.HTMLBars.helper('pluralize', function(params) {
+  Ember.HTMLBars._registerHelper('pluralize', Ember.HTMLBars.makeBoundHelper(function(params) {
     var count, word;
 
     if (params.length === 1) {
@@ -51,7 +51,7 @@ if (Ember.HTMLBars) {
       }
       return count + " " + word;
     }
-  });
+  }));
 } else {
   /**
    *
