@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "license": "MIT",
   "keywords": [
     "ember-addon"
@@ -31,7 +31,8 @@
     "start": "ember s",
     "bower": "bower install",
     "build": "ember build",
-    "test": "testem ci -R dot"
+    "test": "testem ci -R dot",
+    "prepublish": "ember build --environment=production"
   },
   "ember-addon": {
     "main": "lib/ember-addon/index.js"
