@@ -2,7 +2,7 @@
   "name": "ember-inflector",
   "version": "1.4.0",
   "dependencies": {
-    "ember": "components/ember#beta",
+    "ember": ">= 1.0.0 < 2.0.0",
     "handlebars": "2.0.0"
   },
   "devDependencies": {
