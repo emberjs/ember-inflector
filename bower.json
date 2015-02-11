@@ -2,15 +2,20 @@
   "name": "ember-inflector",
   "version": "1.4.0",
   "dependencies": {
-    "ember": ">= 1.0.0 < 2.0.0"
+    "ember": "components/ember#beta",
+    "handlebars": "2.0.0"
   },
   "devDependencies": {
     "jquery": "~1.11.1",
-    "handlebars": "~1.3.0",
+    "handlebars": "~2.0.0",
     "loader.js": "~1.0.0"
   },
   "ignore": [
     "dist/ember-inflector.jshint.js",
     "dist/tests.js"
-  ]
+  ],
+  "resolutions": {
+    "ember": "beta",
+    "handlebars": "2.0.0"
+  }
 }
