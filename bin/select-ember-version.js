@@ -30,13 +30,8 @@ function rewrite(bowerJSON, channel) {
   bowerJSON.dependencies.ember = "components/ember#" + channel;
   bowerJSON.resolutions.ember = channel;
 
-  if (channel === 'release') {
-    bowerJSON.dependencies.handlebars = "1.3.0";
-    bowerJSON.resolutions.handlebars = "1.3.0";
-  } else {
     bowerJSON.dependencies.handlebars = "2.0.0";
     bowerJSON.resolutions.handlebars = "2.0.0";
-  }
 
   return bowerJSON;
 }
@@ -49,29 +44,13 @@ function chooseTemplateCompiler(channel) {
     return RSVP.Promise.resolve();
   }
 
-  if (channel === 'release') {
-    state = {
-      'broccoli-ember-hbs-template-compiler' : 'install',
-      'ember-cli-htmlbars' : 'uninstall'
-    };
-  } else {
-    state = {
-      'broccoli-ember-hbs-template-compiler' : 'uninstall',
-      'ember-cli-htmlbars' : 'install'
-    };
-  }
+  state = {
+    'broccoli-ember-hbs-template-compiler' : 'uninstall',
+    'ember-cli-htmlbars' : 'install'
+  };
   return RSVP.Promise.all(Object.keys(state).map(function(module){
     return run('npm', [state[module], '--save-dev', module]);
-  }))
-  .then(function() {
-    var configFile = path.join(__dirname, '..', 'tests', 'index.html');
-    var config = fs.readFileSync(configFile, { encoding: 'utf8' });
-
-    if (process.env.HTMLBARS && channel === 'canary') {
-      config = config.replace("//'ember-htmlbars': true", "'ember-htmlbars': true");
-      fs.writeFileSync(configFile, config);
-    }
-  });
+  }));
 }
 
 function foundVersion(package) {

@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "license": "MIT",
   "keywords": [
     "ember-addon"
@@ -21,6 +21,7 @@
     "broccoli-uglify-js": "^0.1.3",
     "broccoli-wrap": "0.0.2",
     "ember-cli": "^0.1.3",
+    "ember-cli-htmlbars": "^0.6.0",
     "es6-module-transpiler": "^0.9.5",
     "es6-module-transpiler-package-resolver": "^1.0.1",
     "matchdep": "^0.3.0",
@@ -31,7 +32,8 @@
     "start": "ember s",
     "bower": "bower install",
     "build": "ember build",
-    "test": "testem ci -R dot"
+    "test": "testem ci -R dot",
+    "prepublish": "bower install --no-interactive && ember build --environment=production"
   },
   "ember-addon": {
     "main": "lib/ember-addon/index.js"
