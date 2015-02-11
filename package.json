@@ -32,7 +32,7 @@
     "bower": "bower install",
     "build": "ember build",
     "test": "testem ci -R dot",
-    "prepublish": "ember build --environment=production"
+    "prepublish": "bower install --no-interactive && ember build --environment=production"
   },
   "ember-addon": {
     "main": "lib/ember-addon/index.js"
