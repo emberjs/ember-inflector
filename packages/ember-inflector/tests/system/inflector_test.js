@@ -281,13 +281,15 @@ test('Ember.Inflector.inflector exists', function(){
 });
 
 test('new Ember.Inflector with defaultRules matches docs', function(){
-  expect(4);
+  expect(6);
 
   var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
 
   // defaultRules includes these special rules
-  equal(inflector.pluralize('cow'), 'kine');
-  equal(inflector.singularize('kine'), 'cow');
+  equal(inflector.pluralize('cow'), 'kine', 'cow -> kine');
+  equal(inflector.singularize('kine'), 'cow',  'kine -> cow');
+  equal(inflector.pluralize('octopus'), 'octopodes', 'octopus -> octopodes');
+  equal(inflector.singularize('octopodes'), 'octopus', 'octopodes -> octopus');
 
   // defaultRules adds 's' to singular
   equal(inflector.pluralize('item'), 'items');
