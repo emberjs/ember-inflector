@@ -27,7 +27,7 @@ function rewrite(bowerJSON, channel) {
     bowerJSON.resolutions = {};
   }
 
-  bowerJSON.dependencies.ember = "components/ember#" + channel;
+  bowerJSON.dependencies.ember = "ember#" + channel;
   bowerJSON.resolutions.ember = channel;
 
     bowerJSON.dependencies.handlebars = "2.0.0";

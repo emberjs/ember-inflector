@@ -1,41 +1,41 @@
 {
   "name": "ember-inflector",
   "version": "1.4.0",
+  "description": "ember-inflector goal is to be rails compatible.",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember test"
+  },
+  "repository": "",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": "",
   "license": "MIT",
+  "devDependencies": {
+    "broccoli-asset-rev": "^2.0.0",
+    "ember-cli": "0.2.0",
+    "ember-cli-app-version": "0.3.2",
+    "ember-cli-babel": "^4.0.0",
+    "ember-cli-content-security-policy": "0.3.0",
+    "ember-cli-dependency-checker": "0.0.8",
+    "ember-cli-htmlbars": "0.7.4",
+    "ember-cli-ic-ajax": "0.1.1",
+    "ember-cli-inject-live-reload": "^1.3.0",
+    "ember-cli-qunit": "0.3.9",
+    "ember-cli-uglify": "1.0.1",
+    "ember-data": "1.0.0-beta.15",
+    "ember-export-application-global": "^1.0.2"
+  },
   "keywords": [
     "ember-addon"
   ],
-  "devDependencies": {
-    "bower": "^1.3.8",
-    "broccoli": "^0.12.3",
-    "broccoli-concat": "0.0.7",
-    "broccoli-env": "0.0.1",
-    "broccoli-es3-safe-recast": "0.0.8",
-    "broccoli-es6-module-transpiler": "^0.5.0",
-    "broccoli-file-mover": "^0.4.0",
-    "broccoli-file-remover": "^0.2.2",
-    "broccoli-jshint": "^0.5.3",
-    "broccoli-merge-trees": "^0.1.4",
-    "broccoli-static-compiler": "^0.2.1",
-    "broccoli-transform": "^0.1.1",
-    "broccoli-uglify-js": "^0.1.3",
-    "broccoli-wrap": "0.0.2",
-    "ember-cli": "^0.1.3",
-    "ember-cli-htmlbars": "^0.6.0",
-    "es6-module-transpiler": "^0.9.5",
-    "es6-module-transpiler-package-resolver": "^1.0.1",
-    "matchdep": "^0.3.0",
-    "rsvp": "^3.0.13",
-    "testem": "^0.6.17"
-  },
-  "scripts": {
-    "start": "ember s",
-    "bower": "bower install",
-    "build": "ember build",
-    "test": "testem ci -R dot",
-    "prepublish": "bower install --no-interactive && ember build --environment=production"
-  },
   "ember-addon": {
-    "main": "lib/ember-addon/index.js"
+    "configPath": "tests/dummy/config"
   }
 }
