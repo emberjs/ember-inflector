@@ -15,7 +15,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Stefan Penner, Manuel Wiedenmann and Trace Wax",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
