@@ -8,12 +8,7 @@ Ember CLI/NPM:
 
 ```
 npm install --save ember-inflector
-ember generate ember-inflector
 ```
-
-Bower:
-
-`bower install --save ember-inflector`
 
 ## Usage
 
@@ -23,9 +18,12 @@ All methods are always available from `Ember.Inflector`, but in Ember CLI, you c
 import Inflector from 'ember-inflector';
 import {singularize, pluralize} from 'ember-inflector';
 
+Inflector.inflector.singularize("tacos"); // taco
+Inflector.inflector.pluralize("taco"); // tacos
+
 singularize("tacos"); // taco
 pluralize("taco"); // tacos
 
 // or if not using Ember CLI/ES6
-Ember.Inflector.pluralize("taco"); // tacos
+Ember.Inflector.inflector.pluralize("taco"); // tacos
 ```
