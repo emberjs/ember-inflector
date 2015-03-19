@@ -1,15 +1,11 @@
 {
-  "test_page": "dist/index.html",
-  "src_files": [
-    "dist/tests/**/*.js"
+  "framework": "qunit",
+  "test_page": "tests/index.html?hidepassed",
+  "launch_in_ci": [
+    "PhantomJS"
   ],
-  "serve_files": [
-    "dist/**/*.js"
-  ],
-  "routes": {
-     "/ember-inflector.js": "dist/ember-inflector.js",
-     "/ember-inflector.jshint.js": "dist/ember-inflector.jshint.js",
-     "/tests.js": "dist/tests.js"
-  },
-  "launch_in_ci": [ "PhantomJS" ]
+  "launch_in_dev": [
+    "PhantomJS",
+    "Chrome"
+  ]
 }
