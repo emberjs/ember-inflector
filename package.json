@@ -35,6 +35,7 @@
   "keywords": [
     "ember-addon"
   ],
+  "main": "lib/ember-addon/index.js",
   "ember-addon": {
     "configPath": "tests/dummy/config"
   }
