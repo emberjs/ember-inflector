@@ -244,7 +244,8 @@ Inflector.prototype = {
       firstPhrase, lastWord, isBlank, isCamelized, isUncountable,
       isIrregular, rule;
 
-    isBlank = BLANK_REGEX.test(word);
+    isBlank = !word || BLANK_REGEX.test(word);
+
     isCamelized = CAMELIZED_REGEX.test(word);
     firstPhrase = "";
 
