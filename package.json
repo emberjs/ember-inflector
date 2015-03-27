@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "ember-inflector goal is to be rails compatible.",
   "directories": {
     "doc": "doc",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stefanpenner/ember-inflector.git"  
+    "url": "git://github.com/stefanpenner/ember-inflector.git"
   },
   "engines": {
     "node": ">= 0.10.0"
