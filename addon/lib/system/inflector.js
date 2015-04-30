@@ -3,8 +3,8 @@ import Ember from 'ember';
 var capitalize = Ember.String.capitalize;
 
 var BLANK_REGEX = /^\s*$/;
-var LAST_WORD_DASHED_REGEX = /(\w+[_-])([a-z\d]+$)/;
-var LAST_WORD_CAMELIZED_REGEX = /(\w+)([A-Z][a-z\d]*$)/;
+var LAST_WORD_DASHED_REGEX = /([\w/-]+[_/-])([a-z\d]+$)/;
+var LAST_WORD_CAMELIZED_REGEX = /([\w/-]+)([A-Z][a-z\d]*$)/;
 var CAMELIZED_REGEX = /[A-Z][a-z\d]*$/;
 
 function loadUncountable(rules, uncountable) {
