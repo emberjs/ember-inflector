@@ -38,6 +38,7 @@ test('ability to add additional uncountable rules', function(assert) {
   assert.equal(inflector.pluralize('cow'), 'cow', 'pluralization rule NOT was applied');
   assert.equal(inflector.pluralize('redCow'), 'redCow', 'pluralization rule NOT was applied');
   assert.equal(inflector.pluralize('red-cow'), 'red-cow', 'pluralization rule NOT was applied');
+  assert.equal(inflector.pluralize('red/cow'), 'red/cow', 'pluralization rule NOT was applied');
 });
 
 test('ability to add additional irregular rules', function(assert) {
@@ -46,23 +47,29 @@ test('ability to add additional irregular rules', function(assert) {
 
   assert.equal(inflector.singularize('cows'), 'cow', 'regular singularization rule was applied');
   assert.equal(inflector.pluralize('cow'), 'cows', 'regular pluralization rule was applied');
-  
+
   assert.equal(inflector.singularize('red-cows'), 'red-cow', 'regular singularization rule was applied');
   assert.equal(inflector.pluralize('red-cow'), 'red-cows', 'regular pluralization rule was applied');
-  
+
   assert.equal(inflector.singularize('redCows'), 'redCow', 'regular singularization rule was applied');
   assert.equal(inflector.pluralize('redCow'), 'redCows', 'regular pluralization rule was applied');
+
+  assert.equal(inflector.singularize('red/cows'), 'red/cow', 'regular singularization rule was applied');
+  assert.equal(inflector.pluralize('red/cow'), 'red/cows', 'regular pluralization rule was applied');
 
   inflector.irregular('cow', 'kine');
 
   assert.equal(inflector.singularize('kine'), 'cow', 'irregular singularization rule was applied');
   assert.equal(inflector.pluralize('cow'), 'kine', 'irregular pluralization rule was applied');
-  
+
   assert.equal(inflector.singularize('red-kine'), 'red-cow', 'irregular singularization rule was applied');
   assert.equal(inflector.pluralize('red-cow'), 'red-kine', 'irregular pluralization rule was applied');
-  
+
   assert.equal(inflector.singularize('redKine'), 'redCow', 'irregular singularization rule was applied');
   assert.equal(inflector.pluralize('redCow'), 'redKine', 'irregular pluralization rule was applied');
+
+  assert.equal(inflector.singularize('red/kine'), 'red/cow', 'irregular singularization rule was applied');
+  assert.equal(inflector.pluralize('red/cow'), 'red/kine', 'irregular pluralization rule was applied');
 });
 
 test('ability to add identical singular and pluralizations', function(assert) {
