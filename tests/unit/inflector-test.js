@@ -65,6 +65,11 @@ test('ability to add additional irregular rules', function(assert) {
   assert.equal(inflector.singularize('red-kine'), 'red-cow', 'irregular singularization rule was applied');
   assert.equal(inflector.pluralize('red-cow'), 'red-kine', 'irregular pluralization rule was applied');
 
+  assert.equal(inflector.singularize('red-red-cow'), 'red-red-cow', 'irregular singularization rule was applied correctly with dasherization');
+  assert.equal(inflector.singularize('red-red-kine'), 'red-red-cow', 'irregular singularization rule was applied correctly with dasherization');
+  assert.equal(inflector.pluralize('red-red-cow'), 'red-red-kine', 'irregular pluralization rule was applied correctly with dasherization');
+  assert.equal(inflector.pluralize('red-red-kine'), 'red-red-kine', 'irregular pluralization rule was applied correctly with dasherization');
+
   assert.equal(inflector.singularize('redKine'), 'redCow', 'irregular singularization rule was applied');
   assert.equal(inflector.pluralize('redCow'), 'redKine', 'irregular pluralization rule was applied');
 
