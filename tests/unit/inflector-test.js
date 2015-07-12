@@ -313,3 +313,40 @@ test('new Ember.Inflector with defaultRules matches docs', function(assert) {
   // defaultRules removes 's' from plural
   assert.equal(inflector.singularize('items'), 'item');
 });
+
+test('words containing irregular and uncountable words can be pluralized', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  assert.equal(inflector.pluralize('woman'), 'women');
+  assert.equal(inflector.pluralize('salesperson'), 'salespeople');
+  assert.equal(inflector.pluralize('pufferfish'), 'pufferfish');
+});
+
+
+test('words containing irregular and uncountable words can be singularized', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  assert.equal(inflector.singularize('women'), 'woman');
+  assert.equal(inflector.singularize('salespeople'), 'salesperson');
+  assert.equal(inflector.singularize('pufferfish'), 'pufferfish');
+});
+
+test('CamelCase and UpperCamelCase is preserved for irregular and uncountable pluralizations', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  assert.equal(inflector.pluralize('SuperWoman'), 'SuperWomen');
+  assert.equal(inflector.pluralize('superWoman'), 'superWomen');
+  assert.equal(inflector.pluralize('SuperMan'), 'SuperMen');
+  assert.equal(inflector.pluralize('superMan'), 'superMen');
+  assert.equal(inflector.pluralize('FriedRice'), 'FriedRice');
+  assert.equal(inflector.pluralize('friedRice'), 'friedRice');
+});
+
+
+test('CamelCase and UpperCamelCase is preserved for irregular and uncountable singularization', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  assert.equal(inflector.singularize('SuperWomen'), 'SuperWoman');
+  assert.equal(inflector.singularize('superWomen'), 'superWoman');
+  assert.equal(inflector.singularize('SuperMen'), 'SuperMan');
+  assert.equal(inflector.singularize('superMen'), 'superMan');
+  assert.equal(inflector.singularize('FriedRice'), 'FriedRice');
+  assert.equal(inflector.singularize('friedRice'), 'friedRice');
+});
+

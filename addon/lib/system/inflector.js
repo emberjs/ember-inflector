@@ -241,8 +241,7 @@ Inflector.prototype = {
   */
   inflect: function(word, typeRules, irregular) {
     var inflection, substitution, result, lowercase, wordSplit,
-      firstPhrase, lastWord, isBlank, isCamelized, isUncountable,
-      isIrregular, rule;
+      firstPhrase, lastWord, isBlank, isCamelized, rule;
 
     isBlank = !word || BLANK_REGEX.test(word);
 
@@ -255,26 +254,28 @@ Inflector.prototype = {
 
     lowercase = word.toLowerCase();
     wordSplit = LAST_WORD_DASHED_REGEX.exec(word) || LAST_WORD_CAMELIZED_REGEX.exec(word);
+
     if (wordSplit){
       firstPhrase = wordSplit[1];
       lastWord = wordSplit[2].toLowerCase();
     }
 
-    isUncountable = this.rules.uncountable[lowercase] || this.rules.uncountable[lastWord];
-
-    if (isUncountable) {
-      return word;
+    for (rule in this.rules.uncountable) {
+      if (lowercase.match(rule+"$")) {
+        return word;
+      }
     }
 
-    isIrregular = irregular && (irregular[lowercase] || irregular[lastWord]);
+    for (rule in this.rules.irregular) {
+      if (lowercase.match(rule+"$")) {
+        substitution = irregular[rule];
 
-    if (isIrregular) {
-      if (irregular[lowercase]){
-        return isIrregular;
-      }
-      else {
-        isIrregular = (isCamelized) ? capitalize(isIrregular) : isIrregular;
-        return firstPhrase + isIrregular;
+        if (isCamelized && irregular[lastWord]) {
+          substitution = capitalize(substitution);
+          rule = capitalize(rule);
+        }
+
+        return word.replace(rule, substitution);
       }
     }
 
