@@ -1,17 +1,6 @@
 import Ember from 'ember';
-import {
-  module,
-  test,
-} from 'qunit';
-
-var run = Ember.run;
-var view, lookup, text;
-var originalLookup = Ember.lookup;
-var isHTMLBars = !!Ember.HTMLBars;
-
-function appendView(view) {
-  run(function() { view.appendTo('#qunit-fixture'); });
-}
+import { module } from 'qunit';
+import { test, moduleForComponent } from "ember-qunit";
 
 module("ember-inflector.integration");
 
@@ -31,63 +20,52 @@ test("singularize", function(assert) {
   assert.equal(Ember.String.singularize('octopi'), 'octopus');
 });
 
-module("ember-inflector.integration - " + (isHTMLBars ? "HTMLBars" : "Handlebars") + " Helpers", {
-  setup: function(){
-    Ember.lookup = lookup = {Ember: Ember};
-    var compile = (Ember.HTMLBars || Ember.Handlebars).compile;
-
-    run(function(){
-      view = Ember.View.create({
-        template: compile("{{singularize plural}} {{pluralize single}} {{pluralize 1 singleArg}} {{pluralize 2 multiple}} {{pluralize one boundSingle}} {{pluralize oneString boundSingleString}} {{pluralize two boundMultiple}}"),
-        context: {
-          plural: "octopi",
-          single: "ox",
-          singleArg: "opossums",
-          multiple: "ocelot",
-          one: 1,
-          two: 2,
-          oneString: "1.0",
-          boundSingle: "oranges",
-          boundSingleString: "owls",
-          boundMultiple: "omnivore"
-        }
-      });
-
-      appendView(view);
-      text = $("#qunit-fixture").text();
-    });
-  },
-
-  teardown: function(){
-    run(view, 'destroy');
-    Ember.lookup = originalLookup;
-  }
+moduleForComponent("ember-inflector.integration - " + (!!Ember.HTMLBar ? "HTMLBars" : "Handlebars") + " Helpers", {
+  integration: true
 });
 
 test("helpers - singularize", function(assert) {
-  assert.ok(text.match(/octopus/));
+  this.set('plural', 'octopi');
+  this.render('{{singularize plural}}');
+  assert.equal(this.$().text(), 'octopus');
 });
 
 test("helpers - pluralize - single arg", function(assert) {
-  assert.ok(text.match(/oxen/));
+  this.set('singular', 'ox');
+  this.render('{{pluralize singular}}');
+  assert.equal(this.$().text(), 'oxen');
 });
 
-test("helpers - pluralize - one", function(assert) {
-  assert.ok(text.match(/1 opossum/), text);
+test("helpers - pluralize - count 1", function(assert) {
+  this.set('singular', 'opossum');
+  this.render('{{pluralize 1 singular}}');
+  assert.equal(this.$().text(), '1 opossum');
 });
 
-test("helpers - pluralize - multiple", function(assert) {
-  assert.ok(text.match(/2 ocelots/));
+test("helpers - pluralize - count 2", function(assert) {
+  this.set('singular', 'ocelot');
+  this.render('{{pluralize 2 singular}}');
+  assert.equal(this.$().text(), '2 ocelots');
 });
 
-test("helpers - pluralize - boundSingle", function(assert) {
-  assert.ok(text.match(/1 orange/));
+test("helpers - pluralize - bound count 1", function(assert) {
+  this.set('count', 1);
+  this.set('singular', 'orange');
+  this.render('{{pluralize count singular}}');
+
+  assert.equal(this.$().text(), '1 orange');
 });
 
-test("helpers - pluralize - boundSingle - string", function(assert) {
-  assert.ok(text.match(/1.0 owl/));
+test("helpers - pluralize - bound count 1.0 string", function(assert) {
+  this.set('count', '1.0');
+  this.set('singular', 'owl');
+  this.render('{{pluralize count singular}}');
+  assert.equal(this.$().text(), '1.0 owl');
 });
 
-test("helpers - pluralize - boundMultiple", function(assert) {
-  assert.ok(text.match(/2 omnivores/));
+test("helpers - pluralize - bound count 2", function(assert) {
+  this.set('count', 2);
+  this.set('singular', 'omnivore');
+  this.render('{{pluralize count singular}}');
+  assert.equal(this.$().text(), '2 omnivores');
 });
