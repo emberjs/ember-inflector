@@ -7,7 +7,6 @@ import {
   pluralize,
   singularize
 } from "./lib/system";
-import "./lib/helpers";
 
 Inflector.defaultRules = defaultRules;
 Ember.Inflector        = Inflector;

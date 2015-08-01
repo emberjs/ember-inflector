@@ -2,7 +2,7 @@ import Ember from 'ember';
 import {
   pluralize,
   singularize
-} from "../system/string";
+} from '../system/string';
 
 if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   /**
