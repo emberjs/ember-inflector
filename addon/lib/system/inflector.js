@@ -3,8 +3,8 @@ import Ember from 'ember';
 var capitalize = Ember.String.capitalize;
 
 var BLANK_REGEX = /^\s*$/;
-var LAST_WORD_DASHED_REGEX = /([\w/-]+[_/-])([a-z\d]+$)/;
-var LAST_WORD_CAMELIZED_REGEX = /([\w/-]+)([A-Z][a-z\d]*$)/;
+var LAST_WORD_DASHED_REGEX = /([\w/-]+[_/-\s])([a-z\d]+$)/;
+var LAST_WORD_CAMELIZED_REGEX = /([\w/-\s]+)([A-Z][a-z\d]*$)/;
 var CAMELIZED_REGEX = /[A-Z][a-z\d]*$/;
 
 function loadUncountable(rules, uncountable) {
@@ -241,7 +241,7 @@ Inflector.prototype = {
   */
   inflect: function(word, typeRules, irregular) {
     var inflection, substitution, result, lowercase, wordSplit,
-      firstPhrase, lastWord, isBlank, isCamelized, rule;
+      firstPhrase, lastWord, isBlank, isCamelized, rule, isUncountable;
 
     isBlank = !word || BLANK_REGEX.test(word);
 
@@ -260,10 +260,10 @@ Inflector.prototype = {
       lastWord = wordSplit[2].toLowerCase();
     }
 
-    for (rule in this.rules.uncountable) {
-      if (lowercase.match(rule+"$")) {
-        return word;
-      }
+    isUncountable = this.rules.uncountable[lowercase] || this.rules.uncountable[lastWord];
+
+    if (isUncountable) {
+      return word;
     }
 
     for (rule in this.rules.irregular) {

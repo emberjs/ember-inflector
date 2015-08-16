@@ -318,7 +318,6 @@ test('words containing irregular and uncountable words can be pluralized', funct
   var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
   assert.equal(inflector.pluralize('woman'), 'women');
   assert.equal(inflector.pluralize('salesperson'), 'salespeople');
-  assert.equal(inflector.pluralize('pufferfish'), 'pufferfish');
 });
 
 
@@ -327,6 +326,16 @@ test('words containing irregular and uncountable words can be singularized', fun
   assert.equal(inflector.singularize('women'), 'woman');
   assert.equal(inflector.singularize('salespeople'), 'salesperson');
   assert.equal(inflector.singularize('pufferfish'), 'pufferfish');
+});
+
+test('partial words containing uncountable words can be pluralized', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  assert.equal(inflector.pluralize('price'), 'prices');
+});
+
+test('partial words containing uncountable words can be singularized', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  assert.equal(inflector.singularize('subspecies'), 'subspecy');
 });
 
 test('CamelCase and UpperCamelCase is preserved for irregular and uncountable pluralizations', function(assert) {
