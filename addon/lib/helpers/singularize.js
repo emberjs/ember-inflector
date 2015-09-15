@@ -1,4 +1,4 @@
-import { singularize } from '../system/string';
+import { singularize } from 'ember-inflector';
 import makeHelper from '../utils/make-helper';
 
 /**
