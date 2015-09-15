@@ -1,4 +1,4 @@
-import { pluralize } from '../system/string';
+import { pluralize } from 'ember-inflector';
 import makeHelper from '../utils/make-helper';
 
 /**
