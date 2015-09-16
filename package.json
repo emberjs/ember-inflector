@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "ember-inflector goal is to be rails compatible.",
   "directories": {
     "doc": "doc",
