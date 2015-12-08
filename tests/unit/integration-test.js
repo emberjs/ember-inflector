@@ -56,11 +56,32 @@ test("helpers - pluralize - bound count 1", function(assert) {
   assert.equal(this.$().text(), '1 orange');
 });
 
+test("helpers - pluralize - bound count 1.0 float", function(assert) {
+  this.set('count', 1.0);
+  this.set('singular', 'owl');
+  this.render('{{pluralize count singular}}');
+  assert.equal(this.$().text(), '1 owl');
+});
+
+test("helpers - pluralize - bound count 1.5 float", function(assert) {
+  this.set('count', 1.5);
+  this.set('singular', 'owl');
+  this.render('{{pluralize count singular}}');
+  assert.equal(this.$().text(), '1.5 owls');
+});
+
 test("helpers - pluralize - bound count 1.0 string", function(assert) {
   this.set('count', '1.0');
   this.set('singular', 'owl');
   this.render('{{pluralize count singular}}');
   assert.equal(this.$().text(), '1.0 owl');
+});
+
+test("helpers - pluralize - bound count 1.5 string", function(assert) {
+  this.set('count', '1.5');
+  this.set('singular', 'owl');
+  this.render('{{pluralize count singular}}');
+  assert.equal(this.$().text(), '1.5 owls');
 });
 
 test("helpers - pluralize - bound count 2", function(assert) {

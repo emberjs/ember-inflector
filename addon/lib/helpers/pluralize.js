@@ -19,7 +19,7 @@ import makeHelper from '../utils/make-helper';
  * @param {String|Property} word word to pluralize
 */
 export default makeHelper(function (params) {
-  var count, word;
+  let count, word;
 
   if (params.length === 1) {
     word = params[0];
@@ -28,9 +28,10 @@ export default makeHelper(function (params) {
     count = params[0];
     word  = params[1];
 
-    if ((count | 0) !== 1) {
+    if (parseFloat(count) !== 1) {
       word = pluralize(word);
     }
+
     return count + " " + word;
   }
 });

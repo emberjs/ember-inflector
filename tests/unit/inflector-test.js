@@ -540,4 +540,3 @@ test('Ember.Inflector.singularize passes same test cases as ActiveSupport::Infle
   assert.equal(inflector.singularize('slices'), 'slice');
   assert.equal(inflector.singularize('police'), 'police');
 });
-
