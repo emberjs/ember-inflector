@@ -32,6 +32,6 @@ export default makeHelper(function (params) {
       word = pluralize(word);
     }
 
-    return count + " " + word;
+    return word;
   }
 });
