@@ -359,6 +359,18 @@ test('CamelCase and UpperCamelCase is preserved for irregular and uncountable si
   assert.equal(inflector.singularize('friedRice'), 'friedRice');
 });
 
+test('CamelCase custom irregular words', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  inflector.irregular('unitOfMeasure', 'unitsOfMeasure');
+  inflector.irregular('tipoDocumento', 'tiposDocumento');
+
+  assert.equal(inflector.singularize('unitsOfMeasure'), 'unitOfMeasure');
+  assert.equal(inflector.pluralize('unitOfMeasure'), 'unitsOfMeasure');
+
+  assert.equal(inflector.singularize('tiposDocumento'), 'tipoDocumento');
+  assert.equal(inflector.pluralize('tipoDocumento'), 'tiposDocumento');
+});
+
 test('Ember.Inflector.pluralize passes same test cases as ActiveSupport::Inflector#pluralize', function(assert) {
   var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
 

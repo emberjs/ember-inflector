@@ -266,7 +266,7 @@ Inflector.prototype = {
       return word;
     }
 
-    for (rule in this.rules.irregular) {
+    for (rule in irregular) {
       if (lowercase.match(rule+"$")) {
         substitution = irregular[rule];
 
@@ -275,7 +275,7 @@ Inflector.prototype = {
           rule = capitalize(rule);
         }
 
-        return word.replace(rule, substitution);
+        return word.replace(new RegExp(rule, 'i'), substitution);
       }
     }
 
