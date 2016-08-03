@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "1.9.5",
+  "version": "1.9.6",
   "dependencies": {
     "ember": "~2.6.0",
     "ember-cli-shims": "0.1.1",
