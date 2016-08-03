@@ -552,3 +552,15 @@ test('Ember.Inflector.singularize passes same test cases as ActiveSupport::Infle
   assert.equal(inflector.singularize('slices'), 'slice');
   assert.equal(inflector.singularize('police'), 'police');
 });
+
+test('Ember.Inflector.singularize can singularize "bonuses"', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+
+  assert.equal(inflector.singularize('bonuses'), 'bonus');
+});
+
+test('Ember.Inflector.singularize can pluralize "bonus"', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+
+  assert.equal(inflector.pluralize('bonus'), 'bonuses');
+});
