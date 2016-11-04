@@ -56,6 +56,17 @@ test("helpers - pluralize - bound count 1", function(assert) {
   assert.equal(this.$().text(), '1 orange');
 });
 
+test("helpers - pluralize - bound count 1, word only", function(assert) {
+  this.set('count', 1);
+  this.set('singular', 'orange');
+	this.set('wordOnly', true);
+  this.render('{{pluralize count singular wordOnly}}');
+
+  assert.equal(this.$().text(), 'orange');
+});
+
+
+
 test("helpers - pluralize - bound count 1.0 float", function(assert) {
   this.set('count', 1.0);
   this.set('singular', 'owl');
