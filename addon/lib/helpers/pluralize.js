@@ -18,8 +18,8 @@ import makeHelper from '../utils/make-helper';
  * @param {Number|Property} [count] count of objects
  * @param {String|Property} word word to pluralize
 */
-export default makeHelper(function (params) {
-  let count, word,wordOnly=false;
+export default makeHelper(function (params, hash) {
+  let count, word,withoutCount=false;
 
   if (params.length === 1) {
     word = params[0];
@@ -27,14 +27,14 @@ export default makeHelper(function (params) {
   } else {
     count = params[0];
     word  = params[1];
-		if(params[2]){
-			wordOnly = params[2];
+		if(hash.withoutCount){
+			withoutCount = hash.withoutCount;
 		}
 
     if (parseFloat(count) !== 1) {
       word = pluralize(word);
     }
 
-    return wordOnly ? word : count + " " + word;
+    return withoutCount ? word : count + " " + word;
   }
 });

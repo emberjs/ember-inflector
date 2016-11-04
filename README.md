@@ -42,10 +42,10 @@ Specify a count with the word, with the pluralization being based on the number 
 {{pluralize 2 "taco"}} //2 tacos
 ```
 
-Specify a count with the word, with the pluralization being based on the number of items. Specify true for the last parameter to return on the word without the number.
+Specify a count with the word, with the pluralization being based on the number of items. Specify `withoutCount=true` to return on the word without the number.
 ```helpers
-{{pluralize 1 "taco" true}} //taco
-{{pluralize 2 "taco" true}} //tacos
+{{pluralize 1 "taco" withoutCount=true}} //taco
+{{pluralize 2 "taco" withoutCount=true}} //tacos
 ```
 
 ####singularize

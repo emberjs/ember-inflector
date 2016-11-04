@@ -56,11 +56,11 @@ test("helpers - pluralize - bound count 1", function(assert) {
   assert.equal(this.$().text(), '1 orange');
 });
 
-test("helpers - pluralize - bound count 1, word only", function(assert) {
+test("helpers - pluralize - bound count 1, without count", function(assert) {
   this.set('count', 1);
   this.set('singular', 'orange');
-	this.set('wordOnly', true);
-  this.render('{{pluralize count singular wordOnly}}');
+	this.set('withoutCount', true);
+  this.render('{{pluralize count singular withoutCount=withoutCount}}');
   assert.equal(this.$().text(), 'orange');
 });
 
@@ -72,14 +72,22 @@ test("helpers - pluralize - bound count 1.0 float", function(assert) {
 });
 
 
-test("helpers - pluralize - bound count 1.0 float, word only", function(assert) {
+test("helpers - pluralize - bound count 1.0 float, without count", function(assert) {
   this.set('count', 1.0);
   this.set('singular', 'owl');
-	this.set('wordOnly', true);
-  this.render('{{pluralize count singular wordOnly}}');
+	this.set('withoutCount', true);
+  this.render('{{pluralize count singular withoutCount=withoutCount}}');
   assert.equal(this.$().text(), 'owl');
 });
 
+
+test("helpers - pluralize - bound count 1.0 float, withoutCount=false, specifies count and word", function(assert) {
+  this.set('count', 1.0);
+  this.set('singular', 'owl');
+	this.set('withoutCount', false);
+  this.render('{{pluralize count singular withoutCount=withoutCount}}');
+  assert.equal(this.$().text(), '1 owl');
+});
 
 test("helpers - pluralize - bound count 1.5 float", function(assert) {
   this.set('count', 1.5);
@@ -88,11 +96,11 @@ test("helpers - pluralize - bound count 1.5 float", function(assert) {
   assert.equal(this.$().text(), '1.5 owls');
 });
 
-test("helpers - pluralize - bound count 1.5 float, word only", function(assert) {
+test("helpers - pluralize - bound count 1.5 float, without count", function(assert) {
   this.set('count', 1.5);
   this.set('singular', 'owl');
-	this.set('wordOnly', true);
-  this.render('{{pluralize count singular wordOnly}}');
+	this.set('withoutCount', true);
+  this.render('{{pluralize count singular withoutCount=withoutCount}}');
   assert.equal(this.$().text(), 'owls');
 });
 
@@ -103,11 +111,11 @@ test("helpers - pluralize - bound count 1.0 string", function(assert) {
   assert.equal(this.$().text(), '1.0 owl');
 });
 
-test("helpers - pluralize - bound count 1.0 string, word only", function(assert) {
+test("helpers - pluralize - bound count 1.0 string, without count", function(assert) {
   this.set('count', '1.0');
   this.set('singular', 'owl');
-	this.set('wordOnly', true);
-  this.render('{{pluralize count singular wordOnly}}');
+	this.set('withoutCount', true);
+  this.render('{{pluralize count singular withoutCount=withoutCount}}');
   assert.equal(this.$().text(), 'owl');
 });
 
@@ -120,11 +128,11 @@ test("helpers - pluralize - bound count 1.5 string", function(assert) {
 });
 
 
-test("helpers - pluralize - bound count 1.5 string, word only", function(assert) {
+test("helpers - pluralize - bound count 1.5 string, without count", function(assert) {
   this.set('count', '1.5');
   this.set('singular', 'owl');
-	this.set('wordOnly', true);
-  this.render('{{pluralize count singular wordOnly}}');
+	this.set('withoutCount', true);
+  this.render('{{pluralize count singular withoutCount=withoutCount}}');
   assert.equal(this.$().text(), 'owls');
 });
 
@@ -135,10 +143,10 @@ test("helpers - pluralize - bound count 2", function(assert) {
   assert.equal(this.$().text(), '2 omnivores');
 });
 
-test("helpers - pluralize - bound count 2, word only", function(assert) {
+test("helpers - pluralize - bound count 2, without count", function(assert) {
   this.set('count', 2);
   this.set('singular', 'omnivore');
-	this.set('wordOnly', true);
-  this.render('{{pluralize count singular wordOnly}}');
+	this.set('withoutCount', true);
+  this.render('{{pluralize count singular withoutCount=withoutCount}}');
   assert.equal(this.$().text(), 'omnivores');
 });
