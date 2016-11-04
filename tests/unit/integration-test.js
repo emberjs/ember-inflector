@@ -131,7 +131,7 @@ test("helpers - pluralize - bound count 1.5 string", function(assert) {
 test("helpers - pluralize - bound count 1.5 string, without count", function(assert) {
   this.set('count', '1.5');
   this.set('singular', 'owl');
-	this.set('withoutCount', true);
+	this.set("withoutCount", true);
   this.render('{{pluralize count singular withoutCount=withoutCount}}');
   assert.equal(this.$().text(), 'owls');
 });
