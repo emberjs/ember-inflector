@@ -17,7 +17,7 @@ import makeHelper from '../utils/make-helper';
  * @method pluralize
  * @param {Number|Property} [count] count of objects
  * @param {String|Property} word word to pluralize
-*/
+ */
 export default makeHelper(function (params, hash) {
   let count, word,withoutCount=false;
 
@@ -27,9 +27,9 @@ export default makeHelper(function (params, hash) {
   } else {
     count = params[0];
     word  = params[1];
-		if(hash.withoutCount){
-			withoutCount = hash.withoutCount;
-		}
+    if(hash.withoutCount){
+      withoutCount = hash.withoutCount;
+    }
 
     if (parseFloat(count) !== 1) {
       word = pluralize(word);
