@@ -27,8 +27,13 @@ export {
 if (typeof define !== 'undefined' && define.amd){
   define('ember-inflector', ['exports'], function(__exports__){
     __exports__['default'] = Inflector;
+    __exports__.pluralize = pluralize;
+    __exports__.singularize = singularize;
+
     return Inflector;
   });
 } else if (typeof module !== 'undefined' && module['exports']){
   module['exports'] = Inflector;
+  Inflector.singularize = singularize;
+  Inflector.pluralize = pluralize;
 }
