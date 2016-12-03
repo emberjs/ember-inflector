@@ -6,10 +6,10 @@ import {
 
 var inflector;
 module('ember-inflector.dsl', {
-  setup: function() {
+  beforeEach() {
     inflector = new Ember.Inflector(/* no rulest == no rules */);
   },
-  teardown: function() {
+  afterEach() {
     inflector = undefined;
   }
 });
