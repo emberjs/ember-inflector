@@ -30,7 +30,7 @@ if (typeof define !== 'undefined' && define.amd){
     __exports__.pluralize = pluralize;
     __exports__.singularize = singularize;
 
-    return Inflector;
+    return __exports__;
   });
 } else if (typeof module !== 'undefined' && module['exports']){
   module['exports'] = Inflector;
