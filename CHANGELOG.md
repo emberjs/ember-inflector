@@ -1,6 +1,10 @@
 CHANGELOG
 --------
 
+## 1.10.1 (January 9, 2017)
+
+- [BUGFIX] Return the same output format for `defined.amd` environments.
+
 ## 1.10.0 (January 3, 2017)
 
 - Expose the same API (singularize, pluralize) for all UMD consumers
