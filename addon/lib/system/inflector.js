@@ -73,8 +73,12 @@ function loadIrregular(rules, irregularPairs) {
 
   ```javascript
   var rules = {
-    plurals:  [ /$/, 's' ],
-    singular: [ /\s$/, '' ],
+    plurals:  [
+      [ /$/, 's' ]
+    ],
+    singular: [
+      [ /\s$/, '' ]
+    ],
     irregularPairs: [
       [ 'cow', 'kine' ]
     ],
