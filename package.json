@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "ember-inflector goal is to be rails compatible.",
   "keywords": [
     "ember-addon"
@@ -21,7 +21,7 @@
     "test": "ember try:each"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 0.12.0"
   },
   "dependencies": {
     "ember-cli-babel": "^5.1.7"
@@ -45,9 +45,6 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.10"
-  },
-  "engines": {
-    "node": ">= 0.12.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
