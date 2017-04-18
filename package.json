@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "ember-inflector goal is to be rails compatible.",
   "keywords": [
     "ember-addon"
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stefanpenner/ember-inflector.git"
+    "url": "git://github.com/emberjs/ember-inflector.git"
   },
   "scripts": {
     "build": "ember build",
