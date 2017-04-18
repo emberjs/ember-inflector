@@ -28,9 +28,9 @@ pluralize("taco"); // tacos
 Ember.Inflector.inflector.pluralize("taco"); // tacos
 ```
 
-###Template Helpers
+### Template Helpers
 
-####pluralize
+#### pluralize
 
 Pluralize a word
 ```helpers
@@ -49,7 +49,7 @@ Specify a count with the word, with the pluralization being based on the number 
 {{pluralize 2 "taco" without-count=true}} //tacos
 ```
 
-####singularize
+#### singularize
 ```helpers
 {{singularize 'octopi'}} //octopus
 ```
