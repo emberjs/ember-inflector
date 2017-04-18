@@ -29,6 +29,7 @@ Ember.Inflector.inflector.pluralize("taco"); // tacos
 ```
 
 ###Template Helpers
+
 ####pluralize
 
 Pluralize a word
