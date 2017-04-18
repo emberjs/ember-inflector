@@ -27,8 +27,9 @@ export default makeHelper(function (params, hash) {
   } else {
     count = params[0];
     word  = params[1];
-    if(hash.withoutCount){
-      withoutCount = hash.withoutCount;
+
+    if(hash["without-count"]){
+      withoutCount = hash["without-count"];
     }
 
     if (parseFloat(count) !== 1) {
