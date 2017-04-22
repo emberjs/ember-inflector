@@ -1,6 +1,11 @@
 CHANGELOG
 --------
 
+## 2.0.0 (April 22, 2017)
+
+- Update to use Babel 6
+- Drop support for Node 0.10 and Node 0.12.
+
 ## 1.10.1 (January 9, 2017)
 
 - [BUGFIX] Return the same output format for `defined.amd` environments.
