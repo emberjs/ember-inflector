@@ -60,7 +60,8 @@ export default {
     ['sex', 'sexes'],
     ['move', 'moves'],
     ['cow', 'kine'],
-    ['zombie', 'zombies']
+    ['zombie', 'zombies'],
+    ['criterion', 'criteria']
   ],
 
   uncountable: [
