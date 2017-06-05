@@ -1,4 +1,4 @@
-# Ember Inflector [![Build Status](https://travis-ci.org/emberjs/ember-inflector.png?branch=master)](https://travis-ci.org/emberjs/ember-inflector)
+# Ember Inflector [![Build Status](https://travis-ci.org/emberjs/ember-inflector.svg?branch=master)](https://travis-ci.org/emberjs/ember-inflector)
 
 Ember Inflector is a library for inflecting words between plural and singular forms. Ember Inflector aims to be compatible with [ActiveSupport::Inflector](http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html) from Ruby on Rails, including the ability to add your own inflections in your app.
 
