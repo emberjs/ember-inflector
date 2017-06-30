@@ -22,6 +22,9 @@ Inflector.inflector.pluralize("taco"); // tacos
 singularize("tacos"); // taco
 pluralize("taco"); // tacos
 
+pluralize(2, "taco"); // 2 tacos
+pluralize(2, "tacos", { withoutCount: true }); // tacos
+
 // or if not using Ember CLI/ES6
 Ember.Inflector.inflector.pluralize("taco"); // tacos
 ```
