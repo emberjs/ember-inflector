@@ -4,6 +4,10 @@ node_js:
   - "4"
 
 sudo: false
+dist: trusty
+
+addons:
+   chrome: stable
 
 cache:
   yarn: true
@@ -24,9 +28,8 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-  - yarn global add bower phantomjs-prebuilt
+  - yarn global add bower
   - bower --version
-  - phantomjs --version
 
 install:
   - yarn install --no-lockfile
