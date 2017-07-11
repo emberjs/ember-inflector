@@ -4,10 +4,8 @@ Ember Inflector is a library for inflecting words between plural and singular fo
 
 ## Installation
 
-Ember CLI/NPM:
-
 ```
-npm install --save ember-inflector
+ember install ember-inflector
 ```
 
 ## Usage
