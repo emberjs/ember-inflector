@@ -11,9 +11,18 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
     @method pluralize
     @for String
   */
-  String.prototype.pluralize = function() {
-    return pluralize(this);
-  };
+  Object.defineProperty(String.prototype, 'pluralize', {
+    get() {
+      Ember.deprecate(`String.prototype.pluralize() is deprecated. Please explicitly: import { pluralize } from 'ember-inflector';`, false, {
+        id: 'ember-inflector.globals',
+        until: '3.0.0',
+      });
+
+      return function() {
+        return pluralize(this);
+      };
+    },
+  });
 
   /**
     See {{#crossLink "Ember.String/singularize"}}{{/crossLink}}
@@ -21,7 +30,16 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
     @method singularize
     @for String
   */
-  String.prototype.singularize = function() {
-    return singularize(this);
-  };
+  Object.defineProperty(String.prototype, 'singularize', {
+    get() {
+      Ember.deprecate(`String.prototype.singularize() is deprecated. Please explicitly: import { singularize } from 'ember-inflector';`, false, {
+        id: 'ember-inflector.globals',
+        until: '3.0.0',
+      });
+
+      return function() {
+        return singularize(this);
+      };
+    },
+  });
 }
