@@ -1,5 +1,3 @@
-/* global define, module */
-
 import Ember from 'ember';
 import {
   Inflector,
@@ -23,17 +21,3 @@ export {
   singularize,
   defaultRules
 };
-
-if (typeof define !== 'undefined' && define.amd){
-  define('ember-inflector', ['exports'], function(__exports__){
-    __exports__['default'] = Inflector;
-    __exports__.pluralize = pluralize;
-    __exports__.singularize = singularize;
-
-    return __exports__;
-  });
-} else if (typeof module !== 'undefined' && module['exports']){
-  module['exports'] = Inflector;
-  Inflector.singularize = singularize;
-  Inflector.pluralize = pluralize;
-}
