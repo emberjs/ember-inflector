@@ -14,7 +14,7 @@ All methods are always available from `Ember.Inflector`, but in Ember CLI, you c
 
 ```javascript
 import Inflector from 'ember-inflector';
-import {singularize, pluralize} from 'ember-inflector';
+import { singularize, pluralize } from 'ember-inflector';
 
 Inflector.inflector.singularize("tacos"); // taco
 Inflector.inflector.pluralize("taco"); // tacos
