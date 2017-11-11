@@ -1,6 +1,10 @@
 CHANGELOG
 --------
 
+## 2.1.0 (November 11, 2017)
+
+- Deprecate `Ember.Inflector`, `Ember.String.singularize`, `Ember.String.pluralize`.
+
 ## 2.0.0 (April 22, 2017)
 
 - Update to use Babel 6
