@@ -10,7 +10,7 @@ ember install ember-inflector
 
 ## Usage
 
-All methods are always available from `Ember.Inflector`, but in Ember CLI, you can always `import` instead:
+All methods are always available from the `ember-inflector` module:
 
 ```javascript
 import Inflector from 'ember-inflector';
@@ -21,9 +21,6 @@ Inflector.inflector.pluralize("taco"); // tacos
 
 singularize("tacos"); // taco
 pluralize("taco"); // tacos
-
-// or if not using Ember CLI/ES6
-Ember.Inflector.inflector.pluralize("taco"); // tacos
 ```
 
 ### Template Helpers
