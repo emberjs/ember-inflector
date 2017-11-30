@@ -28,23 +28,23 @@ pluralize("taco"); // tacos
 #### pluralize
 
 Pluralize a word
-```helpers
-{{pluralize "taco"}} //tacos
+```hbs
+{{pluralize "taco"}} -> tacos
 ```
 
 Specify a count with the word, with the pluralization being based on the number of items.
-```helpers
-{{pluralize 1 "taco"}} //1 taco
-{{pluralize 2 "taco"}} //2 tacos
+```hbs
+{{pluralize 1 "taco"}} -> 1 taco
+{{pluralize 2 "taco"}} -> 2 tacos
 ```
 
 Specify a count with the word, with the pluralization being based on the number of items. Specify `without-count=true` to return on the word without the number.
-```helpers
-{{pluralize 1 "taco" without-count=true}} //taco
-{{pluralize 2 "taco" without-count=true}} //tacos
+```hbs
+{{pluralize 1 "taco" without-count=true}} -> taco
+{{pluralize 2 "taco" without-count=true}} -> tacos
 ```
 
 #### singularize
-```helpers
-{{singularize 'octopi'}} //octopus
+```hbs
+{{singularize 'octopi'}} -> octopus
 ```
