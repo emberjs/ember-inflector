@@ -54,6 +54,7 @@ export default {
   ],
 
   irregularPairs: [
+    ['foot', 'feet'],
     ['person', 'people'],
     ['man', 'men'],
     ['child', 'children'],
