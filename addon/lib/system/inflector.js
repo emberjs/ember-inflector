@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import { capitalize as emberCapitalize } from '@ember/string';
 
-var capitalize = Ember.String.capitalize;
+var capitalize = emberCapitalize;
 
 var BLANK_REGEX = /^\s*$/;
 var LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$)/;

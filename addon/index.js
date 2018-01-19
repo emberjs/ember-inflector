@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { deprecate } from '@ember/application/deprecations';
 import {
   Inflector,
   defaultRules,
@@ -10,7 +11,7 @@ Inflector.defaultRules = defaultRules;
 
 Object.defineProperty(Ember, 'Inflector', {
   get() {
-    Ember.deprecate(`Ember.Inflector is deprecated. Please explicitly: import Inflector from 'ember-inflector';`, false, {
+    deprecate(`Ember.Inflector is deprecated. Please explicitly: import Inflector from 'ember-inflector';`, false, {
       id: 'ember-inflector.globals',
       until: '3.0.0',
     });
@@ -21,7 +22,7 @@ Object.defineProperty(Ember, 'Inflector', {
 
 Object.defineProperty(Ember.String, 'singularize', {
   get() {
-    Ember.deprecate(`Ember.String.singularize() is deprecated. Please explicitly: import { singularize } from 'ember-inflector';`, false, {
+    deprecate(`Ember.String.singularize() is deprecated. Please explicitly: import { singularize } from 'ember-inflector';`, false, {
       id: 'ember-inflector.globals',
       until: '3.0.0',
     });
@@ -32,7 +33,7 @@ Object.defineProperty(Ember.String, 'singularize', {
 
 Object.defineProperty(Ember.String, 'pluralize', {
   get() {
-    Ember.deprecate(`Ember.String.pluralize() is deprecated. Please explicitly: import { pluralize } from 'ember-inflector';`, false, {
+    deprecate(`Ember.String.pluralize() is deprecated. Please explicitly: import { pluralize } from 'ember-inflector';`, false, {
       id: 'ember-inflector.globals',
       until: '3.0.0',
     });
