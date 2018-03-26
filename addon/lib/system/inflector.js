@@ -138,9 +138,10 @@ Inflector.prototype = {
       return this._sCache[word] || (this._sCache[word] = this._singularize(word));
     };
 
-    this.pluralize = function(word) {
+    this.pluralize = function(numberOrWord, word, options = {}) {
       this._cacheUsed = true;
-      return this._pCache[word] || (this._pCache[word] = this._pluralize(word));
+      var cacheKey = [numberOrWord, word, options.withoutCount]
+      return this._pCache[cacheKey] || (this._pCache[cacheKey] = this._pluralize(numberOrWord, word, options));
     };
   },
 
@@ -168,8 +169,8 @@ Inflector.prototype = {
       return this._singularize(word);
     };
 
-    this.pluralize = function(word) {
-      return this._pluralize(word);
+    this.pluralize = function() {
+      return this._pluralize(...arguments);
     };
   },
 
@@ -216,12 +217,20 @@ Inflector.prototype = {
     @method pluralize
     @param {String} word
   */
-  pluralize: function(word) {
-    return this._pluralize(word);
+  pluralize: function() {
+    return this._pluralize(...arguments);
   },
 
-  _pluralize: function(word) {
-    return this.inflect(word, this.rules.plurals, this.rules.irregular);
+  _pluralize: function(wordOrCount, word, options = {}) {
+    if (word === undefined) {
+     return this.inflect(wordOrCount, this.rules.plurals, this.rules.irregular);
+    }
+
+    if (parseFloat(wordOrCount) !== 1) {
+      word = this.inflect(word, this.rules.plurals, this.rules.irregular);
+    }
+
+    return options.withoutCount ? word : `${wordOrCount} ${word}`;
   },
   /**
     @method singularize

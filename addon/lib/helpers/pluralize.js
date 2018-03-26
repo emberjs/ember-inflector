@@ -19,23 +19,11 @@ import makeHelper from '../utils/make-helper';
  * @param {String|Property} word word to pluralize
  */
 export default makeHelper(function (params, hash) {
-  let count, word,withoutCount=false;
+  let fullParams = new Array(...params);
 
-  if (params.length === 1) {
-    word = params[0];
-    return pluralize(word);
-  } else {
-    count = params[0];
-    word  = params[1];
-
-    if(hash["without-count"]){
-      withoutCount = hash["without-count"];
-    }
-
-    if (parseFloat(count) !== 1) {
-      word = pluralize(word);
-    }
-
-    return withoutCount ? word : count + " " + word;
+  if (fullParams.length === 2) {
+    fullParams.push({ withoutCount: hash["without-count"] })
   }
+
+  return pluralize(...fullParams);
 });
