@@ -1,7 +1,7 @@
 import Inflector from './inflector';
 
-function pluralize(word) {
-  return Inflector.inflector.pluralize(word);
+function pluralize() {
+  return Inflector.inflector.pluralize(...arguments);
 }
 
 function singularize(word) {

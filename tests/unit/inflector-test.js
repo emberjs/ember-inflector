@@ -14,6 +14,13 @@ module('ember-inflector.dsl', {
   }
 });
 
+test('ability to include counts', function(assert) {
+  inflector.plural(/$/, 's');
+  assert.equal(inflector.pluralize(1, 'cat'), '1 cat', 'pluralize 1')
+  assert.equal(inflector.pluralize(5, 'cat'), '5 cats', 'pluralize 5')
+  assert.equal(inflector.pluralize(5, 'cat', { withoutCount: true }), 'cats', 'without count')
+})
+
 test('ability to add additional pluralization rules', function(assert){
   assert.equal(inflector.pluralize('cow'), 'cow', 'no pluralization rule');
 
