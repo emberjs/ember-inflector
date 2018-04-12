@@ -4,7 +4,7 @@ import {
   singularize
 } from '../system/string';
 
-if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
+if (Ember.EXTEND_PROTOTYPES === true && Ember.EXTEND_PROTOTYPES.String) {
   /**
     See {{#crossLink "Ember.String/pluralize"}}{{/crossLink}}
 
