@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "ember-inflector goal is to be rails compatible.",
   "keywords": [
     "ember-addon"
