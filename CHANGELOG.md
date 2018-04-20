@@ -1,6 +1,16 @@
 CHANGELOG
 --------
 
+## 2.3.0 (April 20, 2018)
+
+- Fix deprecation regarding `Ember.EXTEND_PROTOTYPES`.
+- Add ability to specify count to `Inflector.pluralize` and `{{pluralize`.
+
+## 2.2.0 (March 27, 2018)
+
+- Fix documentation snippets in README.
+- Fix issue with local CI runs.
+
 ## 2.1.0 (November 11, 2017)
 
 - Deprecate `Ember.Inflector`, `Ember.String.singularize`, `Ember.String.pluralize`.
