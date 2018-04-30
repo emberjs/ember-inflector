@@ -1,22 +1,20 @@
-import Ember from 'ember';
+import { capitalize } from '@ember/string';
 
-var capitalize = Ember.String.capitalize;
-
-var BLANK_REGEX = /^\s*$/;
-var LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$)/;
-var LAST_WORD_CAMELIZED_REGEX = /([\w/\s-]+)([A-Z][a-z\d]*$)/;
-var CAMELIZED_REGEX = /[A-Z][a-z\d]*$/;
+const BLANK_REGEX = /^\s*$/;
+const LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$)/;
+const LAST_WORD_CAMELIZED_REGEX = /([\w/\s-]+)([A-Z][a-z\d]*$)/;
+const CAMELIZED_REGEX = /[A-Z][a-z\d]*$/;
 
 function loadUncountable(rules, uncountable) {
-  for (var i = 0, length = uncountable.length; i < length; i++) {
+  for (let i = 0, length = uncountable.length; i < length; i++) {
     rules.uncountable[uncountable[i].toLowerCase()] = true;
   }
 }
 
 function loadIrregular(rules, irregularPairs) {
-  var pair;
+  let pair;
 
-  for (var i = 0, length = irregularPairs.length; i < length; i++) {
+  for (let i = 0, length = irregularPairs.length; i < length; i++) {
     pair = irregularPairs[i];
 
     //pluralizing
@@ -96,7 +94,7 @@ function Inflector(ruleSet) {
   ruleSet.uncountable = ruleSet.uncountable || makeDictionary();
   ruleSet.irregularPairs = ruleSet.irregularPairs || makeDictionary();
 
-  var rules = this.rules = {
+  const rules = this.rules = {
     plurals:  ruleSet.plurals || [],
     singular: ruleSet.singular || [],
     irregular: makeDictionary(),
@@ -130,7 +128,7 @@ Inflector.prototype = {
 
     @method enableCache
   */
-  enableCache: function() {
+  enableCache() {
     this.purgeCache();
 
     this.singularize = function(word) {
@@ -150,7 +148,7 @@ Inflector.prototype = {
 
     @method purgedCache
   */
-  purgeCache: function() {
+  purgeCache() {
     this._cacheUsed = false;
     this._sCache = makeDictionary();
     this._pCache = makeDictionary();
@@ -162,7 +160,7 @@ Inflector.prototype = {
 
     @method disableCache;
   */
-  disableCache: function() {
+  disableCache() {
     this._sCache = null;
     this._pCache = null;
     this.singularize = function(word) {
@@ -179,7 +177,7 @@ Inflector.prototype = {
     @param {RegExp} regex
     @param {String} string
   */
-  plural: function(regex, string) {
+  plural(regex, string) {
     if (this._cacheUsed) { this.purgeCache(); }
     this.rules.plurals.push([regex, string.toLowerCase()]);
   },
@@ -189,7 +187,7 @@ Inflector.prototype = {
     @param {RegExp} regex
     @param {String} string
   */
-  singular: function(regex, string) {
+  singular(regex, string) {
     if (this._cacheUsed) { this.purgeCache(); }
     this.rules.singular.push([regex, string.toLowerCase()]);
   },
@@ -198,7 +196,7 @@ Inflector.prototype = {
     @method uncountable
     @param {String} regex
   */
-  uncountable: function(string) {
+  uncountable(string) {
     if (this._cacheUsed) { this.purgeCache(); }
     loadUncountable(this.rules, [string.toLowerCase()]);
   },
@@ -208,7 +206,7 @@ Inflector.prototype = {
     @param {String} singular
     @param {String} plural
   */
-  irregular: function (singular, plural) {
+  irregular(singular, plural) {
     if (this._cacheUsed) { this.purgeCache(); }
     loadIrregular(this.rules, [[singular, plural]]);
   },
@@ -217,11 +215,11 @@ Inflector.prototype = {
     @method pluralize
     @param {String} word
   */
-  pluralize: function() {
+  pluralize() {
     return this._pluralize(...arguments);
   },
 
-  _pluralize: function(wordOrCount, word, options = {}) {
+  _pluralize(wordOrCount, word, options = {}) {
     if (word === undefined) {
      return this.inflect(wordOrCount, this.rules.plurals, this.rules.irregular);
     }
@@ -236,11 +234,11 @@ Inflector.prototype = {
     @method singularize
     @param {String} word
   */
-  singularize: function(word) {
+  singularize(word) {
     return this._singularize(word);
   },
 
-  _singularize: function(word) {
+  _singularize(word) {
     return this.inflect(word, this.rules.singular,  this.rules.irregularInverse);
   },
 
@@ -252,14 +250,12 @@ Inflector.prototype = {
     @param {Object} typeRules
     @param {Object} irregular
   */
-  inflect: function(word, typeRules, irregular) {
-    var inflection, substitution, result, lowercase, wordSplit,
-      firstPhrase, lastWord, isBlank, isCamelized, rule, isUncountable;
+  inflect(word, typeRules, irregular) {
+    let inflection, substitution, result, lowercase, wordSplit,
+      lastWord, isBlank, isCamelized, rule, isUncountable;
 
     isBlank = !word || BLANK_REGEX.test(word);
-
     isCamelized = CAMELIZED_REGEX.test(word);
-    firstPhrase = "";
 
     if (isBlank) {
       return word;
@@ -269,7 +265,6 @@ Inflector.prototype = {
     wordSplit = LAST_WORD_DASHED_REGEX.exec(word) || LAST_WORD_CAMELIZED_REGEX.exec(word);
 
     if (wordSplit){
-      firstPhrase = wordSplit[1];
       lastWord = wordSplit[2].toLowerCase();
     }
 
@@ -293,8 +288,8 @@ Inflector.prototype = {
     }
 
     for (var i = typeRules.length, min = 0; i > min; i--) {
-       inflection = typeRules[i-1];
-       rule = inflection[0];
+      inflection = typeRules[i-1];
+      rule = inflection[0];
 
       if (rule.test(word)) {
         break;
