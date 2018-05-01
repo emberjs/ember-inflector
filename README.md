@@ -26,6 +26,18 @@ pluralize(2, "taco"); // 2 tacos
 pluralize(2, "tacos", { withoutCount: true }); // tacos
 ```
 
+### Custom Rules
+
+If necessary you can setup special inflection rules for your application:
+
+```javascript
+import Inflector from 'ember-inflector';
+
+Inflector.inflector.irregular('person', 'people');
+Inflector.inflector.uncountable('sheep');
+
+```
+
 ### Template Helpers
 
 #### pluralize
