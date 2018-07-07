@@ -20,7 +20,8 @@
     "lint:js": "eslint ./*.js addon addon-test-support app blueprints config lib server test-support tests",
     "start": "ember serve",
     "test": "ember test",
-    "test:all": "ember try:each"
+    "test:all": "ember try:each",
+    "test:node": "qunit node-tests/**/*-test.js"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
@@ -48,9 +49,13 @@
     "ember-try": "^0.2.23",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.1",
-    "loader.js": "^4.2.3"
+    "esm": "^3.0.63",
+    "loader.js": "^4.2.3",
+    "qunit": "^2.6.1"
   },
+  "main": "addon/index.js",
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "main": "index.js"
   }
 }

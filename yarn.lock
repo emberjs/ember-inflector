@@ -2508,6 +2508,10 @@ eslint@^4.0.0:
     table "^4.0.1"
     text-table "~0.2.0"
 
+esm@^3.0.63:
+  version "3.0.63"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.63.tgz#9bae009df97fea8f5945290972d011924bbec499"
+
 espree@^3.4.3:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/espree/-/espree-3.4.3.tgz#2910b5ccd49ce893c2ffffaab4fd8b3a31b82374"
@@ -5030,6 +5034,18 @@ quick-temp@^0.1.8:
 qunit@^2.5.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/qunit/-/qunit-2.6.0.tgz#347b34686e2aa67a9f81f81d39f0771603ed628c"
+  dependencies:
+    chokidar "1.7.0"
+    commander "2.12.2"
+    exists-stat "1.0.0"
+    findup-sync "2.0.0"
+    js-reporters "1.2.1"
+    resolve "1.5.0"
+    walk-sync "0.3.2"
+
+qunit@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/qunit/-/qunit-2.6.1.tgz#3a2a5f05307f873174e0f5859010fb7380380e3c"
   dependencies:
     chokidar "1.7.0"
     commander "2.12.2"

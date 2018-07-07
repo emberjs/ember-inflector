@@ -1,4 +1,7 @@
-import { capitalize } from '@ember/string';
+const STRING_CAPITALIZE_REGEXP = /(^|\/)([a-z\u00C0-\u024F])/g;
+const capitalize = str => {
+  return str.replace(STRING_CAPITALIZE_REGEXP, (match /*, separator, chr */) => match.toUpperCase())
+};
 
 const BLANK_REGEX = /^\s*$/;
 const LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$)/;
