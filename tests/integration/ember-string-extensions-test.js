@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { pluralize, singularize } from 'ember-inflector';
 import { module, test } from "ember-qunit";
 
 module("Integration | Ember.String extensions");
@@ -6,15 +6,15 @@ module("Integration | Ember.String extensions");
 test("pluralize", function(assert) {
   assert.expect(3);
 
-  assert.equal(Ember.String.pluralize('word'),     'words');
-  assert.equal(Ember.String.pluralize('ox'),       'oxen');
-  assert.equal(Ember.String.pluralize('octopus'),  'octopi');
+  assert.equal(pluralize('word'),     'words');
+  assert.equal(pluralize('ox'),       'oxen');
+  assert.equal(pluralize('octopus'),  'octopi');
 });
 
 test("singularize", function(assert) {
   assert.expect(3);
 
-  assert.equal(Ember.String.singularize('words'),  'word');
-  assert.equal(Ember.String.singularize('oxen'),   'ox');
-  assert.equal(Ember.String.singularize('octopi'), 'octopus');
+  assert.equal(singularize('words'),  'word');
+  assert.equal(singularize('oxen'),   'ox');
+  assert.equal(singularize('octopi'), 'octopus');
 });

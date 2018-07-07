@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Inflector from 'ember-inflector';
 import {
   module,
   test
@@ -7,7 +7,7 @@ import {
 var inflector;
 module('ember-inflector.dsl', {
   beforeEach() {
-    inflector = new Ember.Inflector(/* no rulest == no rules */);
+    inflector = new Inflector(/* no rulest == no rules */);
   },
   afterEach() {
     inflector = undefined;
@@ -107,7 +107,7 @@ module('ember-inflector.unit');
 test('plurals', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     plurals: [
       [/$/, 's'],
       [/s$/i, 's']
@@ -120,7 +120,7 @@ test('plurals', function(assert) {
 test('singularization', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     singular: [
       [/s$/i, ''],
       [/(ss)$/i, '$1']
@@ -133,7 +133,7 @@ test('singularization', function(assert) {
 test('singularization of irregular singulars', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     singular: [
       [/s$/i, ''],
       [/(ss)$/i, '$1']
@@ -149,7 +149,7 @@ test('singularization of irregular singulars', function(assert) {
 test('pluralization of irregular plurals', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     plurals: [
       [/$/,'s']
     ],
@@ -164,7 +164,7 @@ test('pluralization of irregular plurals', function(assert) {
 test('plural', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     plurals: [
       ['1', '1'],
       ['2', '2'],
@@ -178,7 +178,7 @@ test('plural', function(assert) {
 test('singular', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     singular: [
       ['1', '1'],
       ['2', '2'],
@@ -192,7 +192,7 @@ test('singular', function(assert) {
 test('irregular', function(assert) {
   assert.expect(6);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     irregularPairs: [
       ['1', '12'],
       ['2', '22'],
@@ -212,7 +212,7 @@ test('irregular', function(assert) {
 test('uncountable', function(assert) {
   assert.expect(3);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     uncountable: [
       '1',
       '2',
@@ -228,7 +228,7 @@ test('uncountable', function(assert) {
 test('inflect.nothing', function(assert) {
   assert.expect(2);
 
-  var inflector = new Ember.Inflector();
+  var inflector = new Inflector();
 
   assert.equal(inflector.inflect('',  []), '');
   assert.equal(inflector.inflect(' ', []), ' ');
@@ -237,7 +237,7 @@ test('inflect.nothing', function(assert) {
 test('inflect.noRules', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector();
+  var inflector = new Inflector();
 
   assert.equal(inflector.inflect('word', []),'word');
 });
@@ -245,7 +245,7 @@ test('inflect.noRules', function(assert) {
 test('inflect.uncountable', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     plural: [
       [/$/,'s']
     ],
@@ -262,7 +262,7 @@ test('inflect.uncountable', function(assert) {
 test('inflect.irregular', function(assert) {
   assert.expect(2);
 
-  var inflector = new Ember.Inflector({
+  var inflector = new Inflector({
     irregularPairs: [
       ['word', 'wordy']
     ]
@@ -277,7 +277,7 @@ test('inflect.irregular', function(assert) {
 test('inflect.basicRules', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector();
+  var inflector = new Inflector();
   var rules = [[/$/, 's']];
 
   assert.equal(inflector.inflect('word', rules ), 'words');
@@ -286,7 +286,7 @@ test('inflect.basicRules', function(assert) {
 test('inflect.advancedRules', function(assert) {
   assert.expect(1);
 
-  var inflector = new Ember.Inflector();
+  var inflector = new Inflector();
   var rules = [[/^(ox)$/i, '$1en']];
 
   assert.equal(inflector.inflect('ox', rules), 'oxen');
@@ -295,20 +295,20 @@ test('inflect.advancedRules', function(assert) {
 test('Inflector.defaultRules', function(assert) {
   assert.expect(1);
 
-  var rules = Ember.Inflector.defaultRules;
+  var rules = Inflector.defaultRules;
   assert.ok(rules, 'has defaultRules');
 });
 
-test('Ember.Inflector.inflector exists', function(assert) {
+test('Inflector.inflector exists', function(assert) {
   assert.expect(1);
 
-  assert.ok(Ember.Inflector.inflector, 'Ember.Inflector.inflector exists');
+  assert.ok(Inflector.inflector, 'Inflector.inflector exists');
 });
 
-test('new Ember.Inflector with defaultRules matches docs', function(assert) {
+test('new Inflector with defaultRules matches docs', function(assert) {
   assert.expect(4);
 
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  var inflector = new Inflector(Inflector.defaultRules);
 
   // defaultRules includes these special rules
   assert.equal(inflector.pluralize('cow'), 'kine');
@@ -322,31 +322,31 @@ test('new Ember.Inflector with defaultRules matches docs', function(assert) {
 });
 
 test('words containing irregular and uncountable words can be pluralized', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  var inflector = new Inflector(Inflector.defaultRules);
   assert.equal(inflector.pluralize('woman'), 'women');
   assert.equal(inflector.pluralize('salesperson'), 'salespeople');
 });
 
 
 test('words containing irregular and uncountable words can be singularized', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  var inflector = new Inflector(Inflector.defaultRules);
   assert.equal(inflector.singularize('women'), 'woman');
   assert.equal(inflector.singularize('salespeople'), 'salesperson');
   assert.equal(inflector.singularize('pufferfish'), 'pufferfish');
 });
 
 test('partial words containing uncountable words can be pluralized', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  var inflector = new Inflector(Inflector.defaultRules);
   assert.equal(inflector.pluralize('price'), 'prices');
 });
 
 test('partial words containing uncountable words can be singularized', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  var inflector = new Inflector(Inflector.defaultRules);
   assert.equal(inflector.singularize('subspecies'), 'subspecy');
 });
 
 test('CamelCase and UpperCamelCase is preserved for irregular and uncountable pluralizations', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  var inflector = new Inflector(Inflector.defaultRules);
   assert.equal(inflector.pluralize('SuperWoman'), 'SuperWomen');
   assert.equal(inflector.pluralize('superWoman'), 'superWomen');
   assert.equal(inflector.pluralize('SuperMan'), 'SuperMen');
@@ -357,7 +357,7 @@ test('CamelCase and UpperCamelCase is preserved for irregular and uncountable pl
 
 
 test('CamelCase and UpperCamelCase is preserved for irregular and uncountable singularization', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  var inflector = new Inflector(Inflector.defaultRules);
   assert.equal(inflector.singularize('SuperWomen'), 'SuperWoman');
   assert.equal(inflector.singularize('superWomen'), 'superWoman');
   assert.equal(inflector.singularize('SuperMen'), 'SuperMan');
@@ -367,7 +367,7 @@ test('CamelCase and UpperCamelCase is preserved for irregular and uncountable si
 });
 
 test('CamelCase custom irregular words', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+  var inflector = new Inflector(Inflector.defaultRules);
   inflector.irregular('unitOfMeasure', 'unitsOfMeasure');
   inflector.irregular('tipoDocumento', 'tiposDocumento');
 
@@ -378,8 +378,8 @@ test('CamelCase custom irregular words', function(assert) {
   assert.equal(inflector.pluralize('tipoDocumento'), 'tiposDocumento');
 });
 
-test('Ember.Inflector.pluralize passes same test cases as ActiveSupport::Inflector#pluralize', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+test('Inflector.pluralize passes same test cases as ActiveSupport::Inflector#pluralize', function(assert) {
+  var inflector = new Inflector(Inflector.defaultRules);
 
   assert.equal(inflector.pluralize('search'), 'searches');
   assert.equal(inflector.pluralize('switch'), 'switches');
@@ -469,8 +469,8 @@ test('Ember.Inflector.pluralize passes same test cases as ActiveSupport::Inflect
   assert.equal(inflector.pluralize('police'), 'police');
 });
 
-test('Ember.Inflector.singularize passes same test cases as ActiveSupport::Inflector#singularize', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+test('Inflector.singularize passes same test cases as ActiveSupport::Inflector#singularize', function(assert) {
+  var inflector = new Inflector(Inflector.defaultRules);
 
   assert.equal(inflector.singularize('searches'), 'search');
   assert.equal(inflector.singularize('switches'), 'switch');
@@ -560,14 +560,14 @@ test('Ember.Inflector.singularize passes same test cases as ActiveSupport::Infle
   assert.equal(inflector.singularize('police'), 'police');
 });
 
-test('Ember.Inflector.singularize can singularize "bonuses"', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+test('Inflector.singularize can singularize "bonuses"', function(assert) {
+  var inflector = new Inflector(Inflector.defaultRules);
 
   assert.equal(inflector.singularize('bonuses'), 'bonus');
 });
 
-test('Ember.Inflector.singularize can pluralize "bonus"', function(assert) {
-  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+test('Inflector.singularize can pluralize "bonus"', function(assert) {
+  var inflector = new Inflector(Inflector.defaultRules);
 
   assert.equal(inflector.pluralize('bonus'), 'bonuses');
 });
