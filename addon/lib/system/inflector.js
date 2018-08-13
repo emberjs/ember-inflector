@@ -1,4 +1,5 @@
 import { capitalize } from '@ember/string';
+import defaultRules from "./inflections";
 
 const BLANK_REGEX = /^\s*$/;
 const LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$)/;
@@ -146,7 +147,7 @@ Inflector.prototype = {
   /**
     @public
 
-    @method purgedCache
+    @method purgeCache
   */
   purgeCache() {
     this._cacheUsed = false;
@@ -230,6 +231,7 @@ Inflector.prototype = {
 
     return options.withoutCount ? word : `${wordOrCount} ${word}`;
   },
+
   /**
     @method singularize
     @param {String} word
@@ -306,5 +308,8 @@ Inflector.prototype = {
     return result;
   }
 };
+
+Inflector.defaultRules = defaultRules;
+Inflector.inflector = new Inflector(defaultRules);
 
 export default Inflector;
