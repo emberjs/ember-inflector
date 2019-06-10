@@ -1,6 +1,12 @@
 CHANGELOG
 --------
 
+## 3.0.1 (June 9, 2019)
+ - BUGFIX: don't throw if there are muliple copies of ember-inflector present. This mostly makes people's lives easier when adopting Embroider into an existing application.
+
+## 3.0.0
+ -
+
 ## 2.3.0 (April 20, 2018)
 
 - Fix deprecation regarding `Ember.EXTEND_PROTOTYPES`.
