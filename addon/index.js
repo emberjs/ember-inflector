@@ -19,7 +19,7 @@ Object.defineProperty(Ember, 'Inflector', {
 
     return Inflector;
   },
-});
+}, { configurable: true });
 
 Object.defineProperty(Ember.String, 'singularize', {
   get() {
@@ -30,7 +30,7 @@ Object.defineProperty(Ember.String, 'singularize', {
 
     return singularize;
   },
-});
+}, { configurable: true });
 
 Object.defineProperty(Ember.String, 'pluralize', {
   get() {
@@ -41,7 +41,7 @@ Object.defineProperty(Ember.String, 'pluralize', {
 
     return pluralize;
   },
-});
+}, { configurable: true });
 
 import "./lib/ext/string";
 

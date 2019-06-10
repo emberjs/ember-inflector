@@ -23,7 +23,7 @@ if (Ember.ENV.EXTEND_PROTOTYPES === true || Ember.ENV.EXTEND_PROTOTYPES.String) 
         return pluralize(this);
       };
     },
-  });
+  }, { configurable: true });
 
   /**
     See {{#crossLink "Ember.String/singularize"}}{{/crossLink}}
@@ -42,5 +42,5 @@ if (Ember.ENV.EXTEND_PROTOTYPES === true || Ember.ENV.EXTEND_PROTOTYPES.String) 
         return singularize(this);
       };
     },
-  });
+  }, { configurable: true });
 }
