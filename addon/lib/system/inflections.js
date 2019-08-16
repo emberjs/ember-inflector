@@ -66,6 +66,7 @@ export default {
   uncountable: [
     'equipment',
     'information',
+    'info',
     'rice',
     'money',
     'species',
