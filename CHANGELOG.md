@@ -1,6 +1,27 @@
 CHANGELOG
 --------
 
+## Unreleased
+
+- Drop string extension support [#154](https://github.com/emberjs/ember-inflector/pull/154)
+  
+  The deprecated global access has been removed. If you used to access `Emeber.inflector`, 
+  `Ember.String.singularize` or `Ember.String.pluralize` via the `window.Ember` global, 
+  you must now import the module like this instead:
+  ```
+  import { singularize } from 'ember-inflector'
+  singularize('cats');
+  ```
+  
+  See PR for more details.
+
+- Document custom rules [#149](https://github.com/emberjs/ember-inflector/pull/149)
+
+## 3.0.0 (May 1, 2018)
+
+- Upgrade Ember [#148](https://github.com/emberjs/ember-inflector/pull/148)
+- Add typings [#132](https://github.com/emberjs/ember-inflector/pull/132)
+
 ## 2.3.0 (April 20, 2018)
 
 - Fix deprecation regarding `Ember.EXTEND_PROTOTYPES`.
