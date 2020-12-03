@@ -1,18 +1,22 @@
 CHANGELOG
 --------
 
-## Unreleased
+## 4.0.0 (Dec 3, 2020)
 
+- fix and expand TypeScript types
+- Embroider compatibility test scenarios via ember-try
+- upgrade all dependencies (As of dec 3, 2020)
+- update package.json#engines to reflect actually supported node versions (as of Dec 3, 2020)
 - Drop string extension support [#154](https://github.com/emberjs/ember-inflector/pull/154)
-  
-  The deprecated global access has been removed. If you used to access `Emeber.inflector`, 
-  `Ember.String.singularize` or `Ember.String.pluralize` via the `window.Ember` global, 
+
+  The deprecated global access has been removed. If you used to access `Emeber.inflector`,
+  `Ember.String.singularize` or `Ember.String.pluralize` via the `window.Ember` global,
   you must now import the module like this instead:
   ```
   import { singularize } from 'ember-inflector'
   singularize('cats');
   ```
-  
+
   See PR for more details.
 
 - Document custom rules [#149](https://github.com/emberjs/ember-inflector/pull/149)
