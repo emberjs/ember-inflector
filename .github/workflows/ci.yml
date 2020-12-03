@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+  pull_request:
+  schedule:
+    - cron:  '0 4 * * 1' # Mondays at 4am
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup node.js
+        uses: volta-cli/action@v1
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test:ember
+  test-os:
+    name: Tests (Windows & MacOs)
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node: ['10', '12', '14']
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup node.js
+        uses: volta-cli/action@v1
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test:ember
+
+
+  test-no-lock:
+    name: Floating Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup node.js
+        uses: volta-cli/action@v1
+      - name: Install dependencies
+        run: yarn --no-lockfile
+      - name: Test
+        run: yarn test:ember
+
+  test-try:
+    name: Additional Tests
+    runs-on: ubuntu-latest
+    needs:
+      - test
+    strategy:
+      matrix:
+        scenario:
+          - ember-lts-3.16
+          - ember-lts-3.20
+          - ember-release
+          - ember-beta
+          - ember-canary
+          - ember-default-with-jquery
+          - ember-classic
+          - embroider-tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup node.js
+        uses: volta-cli/action@v1
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Test
+        run: yarn ember try:one ${{ matrix.scenario }}
