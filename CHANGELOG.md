@@ -3,6 +3,7 @@ CHANGELOG
 
 ## 4.0.0 (Dec 3, 2020)
 
+- switch to GH actions
 - fix and expand TypeScript types
 - Embroider compatibility test scenarios via ember-try
 - upgrade all dependencies (As of dec 3, 2020)
