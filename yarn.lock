@@ -4859,16 +4859,16 @@ ember-source@~3.24.0:
     semver "^6.1.1"
     silent-error "^1.1.1"
 
-ember-template-lint@^2.15.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-2.15.0.tgz#7a3b8dd97498bc777b4633f1a2a5ad63f63a6e77"
-  integrity sha512-hARl20XxqDbAPC68He1GBi0nDenJuy13Czo4NKaD72Vro+M3AxXOkKoSibeup1hxMAfuY/mWQYfqRij+bKWOhA==
+ember-template-lint@^2.18.0:
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-2.18.0.tgz#cba7665c2ff3c34734285768d7bf41cdd08ffb3f"
+  integrity sha512-4J1Dk2ZaMo/nqtP4QJF+25yYnKNOewE8xopSRNGjgQpNwaUFZmZCtzJtoSJF6+SRLcMDljnewXRezugok4ljug==
   dependencies:
     chalk "^4.0.0"
     ember-template-recast "^5.0.1"
     find-up "^5.0.0"
     get-stdin "^8.0.0"
-    globby "^11.0.1"
+    globby "^11.0.2"
     is-glob "^4.0.1"
     micromatch "^4.0.2"
     resolve "^1.19.0"
@@ -6173,10 +6173,10 @@ globby@10.0.0:
     merge2 "^1.2.3"
     slash "^3.0.0"
 
-globby@^11.0.1:
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.1.tgz#9a2bf107a068f3ffeabc49ad702c79ede8cfd357"
-  integrity sha512-iH9RmgwCmUJHi2z5o2l3eTtGBtXek1OYlHrbcxOYugyHLmAsZrPj43OtHThd62Buh/Vv6VyCBD2bdyWcGNQqoQ==
+globby@^11.0.1, globby@^11.0.2:
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.2.tgz#1af538b766a3b540ebfb58a32b2e2d5897321d83"
+  integrity sha512-2ZThXDvvV8fYFRVIxnrMQBipZQDr7MxKAmQK1vujaj9/7eF0efG7BPUKJ7jP7G5SLF37xKDXvO4S/KKLj/Z0og==
   dependencies:
     array-union "^2.1.0"
     dir-glob "^3.0.1"
