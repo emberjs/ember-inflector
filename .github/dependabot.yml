@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: eslint
+    versions:
+    - 7.19.0
+  - dependency-name: ember-source
+    versions:
+    - 3.24.1
+  - dependency-name: ember-template-lint
+    versions:
+    - 2.18.0
+  - dependency-name: ember-cli
+    versions:
+    - 3.24.0
