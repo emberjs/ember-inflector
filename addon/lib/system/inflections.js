@@ -20,7 +20,7 @@ export default {
     [/^(m|l)ice$/i, '$1ice'],
     [/^(ox)$/i, '$1en'],
     [/^(oxen)$/i, '$1'],
-    [/(quiz)$/i, '$1zes']
+    [/(quiz)$/i, '$1zes'],
   ],
 
   singular: [
@@ -28,7 +28,10 @@ export default {
     [/(ss)$/i, '$1'],
     [/(n)ews$/i, '$1ews'],
     [/([ti])a$/i, '$1um'],
-    [/((a)naly|(b)a|(d)iagno|(p)arenthe|(p)rogno|(s)ynop|(t)he)(sis|ses)$/i, '$1sis'],
+    [
+      /((a)naly|(b)a|(d)iagno|(p)arenthe|(p)rogno|(s)ynop|(t)he)(sis|ses)$/i,
+      '$1sis',
+    ],
     [/(^analy)(sis|ses)$/i, '$1sis'],
     [/([^f])ves$/i, '$1fe'],
     [/(hive)s$/i, '$1'],
@@ -50,7 +53,7 @@ export default {
     [/(vert|ind)ices$/i, '$1ex'],
     [/(matr)ices$/i, '$1ix'],
     [/(quiz)zes$/i, '$1'],
-    [/(database)s$/i, '$1']
+    [/(database)s$/i, '$1'],
   ],
 
   irregularPairs: [
@@ -60,7 +63,7 @@ export default {
     ['sex', 'sexes'],
     ['move', 'moves'],
     ['cow', 'kine'],
-    ['zombie', 'zombies']
+    ['zombie', 'zombies'],
   ],
 
   uncountable: [
@@ -73,6 +76,6 @@ export default {
     'fish',
     'sheep',
     'jeans',
-    'police'
-  ]
+    'police',
+  ],
 };
