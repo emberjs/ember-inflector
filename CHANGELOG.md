@@ -1,5 +1,14 @@
 # Changelog
 
+## v4.0.2 (2021-06-11)
+
+#### :bug: Bug Fix
+* [#372](https://github.com/emberjs/ember-inflector/pull/372) Remove non-existing `defaultRules` re-export ([@mydea](https://github.com/mydea))
+
+#### Committers: 2
+- Francesco Novy ([@mydea](https://github.com/mydea))
+
+
 CHANGELOG
 --------
 
