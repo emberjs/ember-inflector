@@ -9,9 +9,6 @@
 - Francesco Novy ([@mydea](https://github.com/mydea))
 
 
-CHANGELOG
---------
-
 ## 4.0.0 (Dec 3, 2020)
 
 - switch to GH actions
