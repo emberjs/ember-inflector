@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier, qunit/no-assert-equal */
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'test-app/tests/helpers';
 import { render } from '@ember/test-helpers';

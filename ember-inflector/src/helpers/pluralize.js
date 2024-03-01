@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { pluralize } from '../index.js';
 import makeHelper from '../lib/utils/make-helper';
 

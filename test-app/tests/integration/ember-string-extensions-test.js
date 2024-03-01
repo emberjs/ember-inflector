@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars, prettier/prettier, qunit/no-assert-equal, qunit/require-expect */
 import { module, test } from 'qunit';
 import { pluralize, singularize } from 'ember-inflector';
 
