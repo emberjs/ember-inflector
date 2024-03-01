@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { capitalize } from '@ember/string';
 import defaultRules from "./inflections";
 
