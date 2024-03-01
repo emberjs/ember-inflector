@@ -1,0 +1,3 @@
+packages:
+  - 'ember-inflector'
+  - 'test-app'
