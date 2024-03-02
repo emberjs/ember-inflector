@@ -2,24 +2,18 @@
 
 Ember Inflector is a library for inflecting words between plural and singular forms. Ember Inflector aims to be compatible with [ActiveSupport::Inflector](http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html) from Ruby on Rails, including the ability to add your own inflections in your app.
 
+## Compatibility
 
-Compatibility
-------------------------------------------------------------------------------
+- Ember.js v3.16 or above
+- Embroider or ember-auto-import v2
 
-* Ember.js v3.16 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
-
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-inflector
 ```
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 All methods are always available from the `ember-inflector` module:
 
@@ -71,18 +65,15 @@ Specify a count with the word, with the pluralization being based on the number 
 ```
 
 #### singularize
+
 ```hbs
 {{singularize 'octopi'}} -> octopus
 ```
 
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
