@@ -14,7 +14,7 @@ import makeHelper from '../utils/make-helper';
  * @for Ember.HTMLBars.helpers
  * @method singularize
  * @param {String|Property} word word to singularize
-*/
+ */
 export default makeHelper(function (params) {
   return singularize(params[0]);
 });

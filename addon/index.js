@@ -1,12 +1,5 @@
-import {
-  Inflector,
-  pluralize,
-  singularize
-} from "./lib/system";
+import { Inflector, pluralize, singularize } from './lib/system';
 
 export default Inflector;
 
-export {
-  pluralize,
-  singularize
-};
+export { pluralize, singularize };
