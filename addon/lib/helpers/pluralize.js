@@ -22,7 +22,7 @@ export default makeHelper(function (params, hash) {
   let fullParams = new Array(...params);
 
   if (fullParams.length === 2) {
-    fullParams.push({ withoutCount: hash["without-count"] })
+    fullParams.push({ withoutCount: hash['without-count'] });
   }
 
   return pluralize(...fullParams);
