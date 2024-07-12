@@ -1,10 +1,14 @@
-import { capitalize } from '@ember/string';
 import defaultRules from './inflections';
 
 const BLANK_REGEX = /^\s*$/;
 const LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$)/;
 const LAST_WORD_CAMELIZED_REGEX = /([\w/\s-]+)([A-Z][a-z\d]*$)/;
 const CAMELIZED_REGEX = /[A-Z][a-z\d]*$/;
+const CAPITALIZE_REGEX = /(^|\/)([a-z\u00C0-\u024F])/g;
+
+function capitalize(str) {
+  return str.replace(CAPITALIZE_REGEX, (match) => match.toUpperCase());
+}
 
 function loadUncountable(rules, uncountable) {
   for (let i = 0, length = uncountable.length; i < length; i++) {
