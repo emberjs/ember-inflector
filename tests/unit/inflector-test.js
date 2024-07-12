@@ -694,3 +694,10 @@ module('Unit | Utility | inflector', function (hooks) {
     assert.equal(inflector.pluralize('bonus'), 'bonuses');
   });
 });
+
+test('Ember.Inflector preserve capitalized version for irregularPairs', function(assert) {
+  var inflector = new Ember.Inflector(Ember.Inflector.defaultRules);
+
+  assert.equal(inflector.pluralize('Child'), 'Children');
+  assert.equal(inflector.singularize('Children'), 'Child');
+});
