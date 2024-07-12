@@ -1,0 +1,21 @@
+{
+  "solution": {
+    "ember-inflector": {
+      "impact": "patch",
+      "oldVersion": "4.0.2",
+      "newVersion": "4.0.3",
+      "constraints": [
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :bug: Bug Fix"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./package.json"
+    }
+  },
+  "description": "## Release (2024-07-12)\n\nember-inflector 4.0.3 (patch)\n\n#### :bug: Bug Fix\n* `ember-inflector`\n  * [#505](https://github.com/emberjs/ember-inflector/pull/505) chore: Drop hidden ember/string dependency ([@Techn1x](https://github.com/Techn1x))\n\n#### :house: Internal\n* `ember-inflector`\n  * [#503](https://github.com/emberjs/ember-inflector/pull/503) start using release-plan ([@mansona](https://github.com/mansona))\n  * [#502](https://github.com/emberjs/ember-inflector/pull/502) Remove yarn and upgrade ember blueprint with ember-cli-update ([@mansona](https://github.com/mansona))\n\n#### Committers: 2\n- Brad Overton ([@Techn1x](https://github.com/Techn1x))\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
+}
