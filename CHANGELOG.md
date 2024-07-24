@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-07-24)
+
+ember-inflector 5.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-inflector`, `test-app`
+  * [#499](https://github.com/emberjs/ember-inflector/pull/499) convert to a v2 addon using ember init ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
 ## Release (2024-07-12)
 
 ember-inflector 4.0.3 (patch)
