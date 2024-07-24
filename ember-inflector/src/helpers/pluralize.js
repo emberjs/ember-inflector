@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { pluralize } from 'ember-inflector';
 import makeHelper from '../lib/utils/make-helper';
 

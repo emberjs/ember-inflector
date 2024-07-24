@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import Inflector from './inflector';
 
 function pluralize() {

@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions, prettier/prettier */
 import defaultRules from './inflections';
 
 const BLANK_REGEX = /^\s*$/;

@@ -1,4 +1,4 @@
-/* eslint-disable qunit/no-assert-equal */
+/* eslint-disable prettier/prettier, qunit/no-assert-equal, qunit/require-expect */
 import Inflector from 'ember-inflector';
 import { module, test } from 'qunit';
 

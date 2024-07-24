@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import Inflector from './system/inflector';
 import { pluralize, singularize } from './system/string';
 
