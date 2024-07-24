@@ -5,10 +5,8 @@ Ember Inflector is a library for inflecting words between plural and singular fo
 
 ## Compatibility
 
-* Ember.js v3.16 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
-
+- Ember.js v3.16 or above
+- Embroider or ember-auto-import v2
 
 ## Installation
 
@@ -76,7 +74,6 @@ Specify a count with the word, with the pluralization being based on the number 
 ## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
-
 
 ## License
 

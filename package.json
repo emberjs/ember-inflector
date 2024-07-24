@@ -1,93 +1,32 @@
 {
-  "name": "ember-inflector",
-  "version": "4.0.3",
-  "description": "ember-inflector goal is to be rails compatible.",
-  "keywords": [
-    "ember-addon"
-  ],
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/emberjs/ember-inflector.git"
+    "url": "git@github.com:emberjs/ember-inflector.git"
   },
   "license": "MIT",
-  "author": "Stefan Penner, Manuel Wiedenmann and Trace Wax",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
+  "author": "",
   "scripts": {
-    "build": "ember build --environment=production",
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
-    "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
-    "start": "ember serve",
-    "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
-  },
-  "dependencies": {
-    "ember-cli-babel": "^7.26.11"
+    "build": "pnpm --filter ember-inflector build",
+    "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "prepare": "pnpm build",
+    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "pnpm --filter ember-inflector start --no-watch.clearScreen",
+    "start:test-app": "pnpm --filter test-app start",
+    "test": "pnpm --filter '*' test",
+    "test:ember": "pnpm --filter '*' test:ember"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.21.3",
-    "@babel/plugin-proposal-decorators": "^7.21.0",
-    "@ember/optional-features": "^2.0.0",
-    "@ember/string": "^3.1.1",
-    "@ember/test-helpers": "^2.9.3",
-    "@embroider/test-setup": "^3.0.0",
-    "@glimmer/component": "^1.1.2",
-    "@glimmer/tracking": "^1.1.2",
-    "broccoli-asset-rev": "^3.0.0",
-    "concurrently": "^8.0.1",
-    "ember-auto-import": "^2.6.3",
-    "ember-cli": "~4.8.0",
-    "ember-cli-dependency-checker": "^3.3.1",
-    "ember-cli-htmlbars": "^5.0.0",
-    "ember-cli-inject-live-reload": "^2.1.0",
-    "ember-cli-sri": "^2.1.1",
-    "ember-cli-terser": "^4.0.2",
-    "ember-load-initializers": "^2.1.2",
-    "ember-page-title": "^7.0.0",
-    "ember-qunit": "^6.2.0",
-    "ember-resolver": "^10.0.0",
-    "ember-source": "~4.12.0",
-    "ember-source-channel-url": "^3.0.0",
-    "ember-template-lint": "^5.7.2",
-    "ember-try": "^3.0.0",
-    "eslint": "^8.37.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-ember": "^11.5.0",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-qunit": "^7.3.4",
-    "loader.js": "^4.7.0",
-    "prettier": "^2.8.7",
-    "qunit": "^2.19.4",
-    "qunit-dom": "^2.0.0",
-    "release-plan": "^0.9.0",
-    "stylelint": "^15.4.0",
-    "stylelint-config-standard": "^32.0.0",
-    "stylelint-prettier": "^3.0.0",
-    "webpack": "^5.78.0"
+    "concurrently": "^8.2.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-ember-template-tag": "^1.1.0",
+    "release-plan": "^0.9.0"
   },
-  "peerDependencies": {
-    "ember-source": "^3.16.0 || ^4.0.0 || ^5.0.0"
-  },
-  "engines": {
-    "node": "14.* || 16.* || >= 18"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "ember": {
-    "edition": "octane"
-  },
-  "ember-addon": {
-    "configPath": "tests/dummy/config"
+  "packageManager": "pnpm@9.5.0",
+  "pnpm": {
+    "overrides": {
+      "@types/eslint": "^7.0.0"
+    }
   }
 }
