@@ -1,6 +1,9 @@
 {
   "private": true,
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:emberjs/ember-inflector.git"
+  },
   "license": "MIT",
   "author": "",
   "scripts": {
@@ -17,12 +20,13 @@
   "devDependencies": {
     "concurrently": "^8.2.0",
     "prettier": "^3.0.3",
-    "prettier-plugin-ember-template-tag": "^1.1.0"
+    "prettier-plugin-ember-template-tag": "^1.1.0",
+    "release-plan": "^0.9.0"
   },
+  "packageManager": "pnpm@9.5.0",
   "pnpm": {
     "overrides": {
       "@types/eslint": "^7.0.0"
     }
-  },
-  "packageManager": "pnpm@9.5.0"
+  }
 }
