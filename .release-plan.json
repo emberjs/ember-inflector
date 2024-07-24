@@ -1,21 +1,17 @@
 {
   "solution": {
     "ember-inflector": {
-      "impact": "patch",
-      "oldVersion": "4.0.2",
-      "newVersion": "4.0.3",
+      "impact": "major",
+      "oldVersion": "4.0.3",
+      "newVersion": "5.0.0",
       "constraints": [
         {
-          "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
+          "impact": "major",
+          "reason": "Appears in changelog section :boom: Breaking Change"
         }
       ],
-      "pkgJSONPath": "./package.json"
+      "pkgJSONPath": "./ember-inflector/package.json"
     }
   },
-  "description": "## Release (2024-07-12)\n\nember-inflector 4.0.3 (patch)\n\n#### :bug: Bug Fix\n* `ember-inflector`\n  * [#505](https://github.com/emberjs/ember-inflector/pull/505) chore: Drop hidden ember/string dependency ([@Techn1x](https://github.com/Techn1x))\n\n#### :house: Internal\n* `ember-inflector`\n  * [#503](https://github.com/emberjs/ember-inflector/pull/503) start using release-plan ([@mansona](https://github.com/mansona))\n  * [#502](https://github.com/emberjs/ember-inflector/pull/502) Remove yarn and upgrade ember blueprint with ember-cli-update ([@mansona](https://github.com/mansona))\n\n#### Committers: 2\n- Brad Overton ([@Techn1x](https://github.com/Techn1x))\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
+  "description": "## Release (2024-07-24)\n\nember-inflector 5.0.0 (major)\n\n#### :boom: Breaking Change\n* `ember-inflector`, `test-app`\n  * [#499](https://github.com/emberjs/ember-inflector/pull/499) convert to a v2 addon using ember init ([@mansona](https://github.com/mansona))\n\n#### Committers: 1\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
 }
