@@ -1,6 +1,6 @@
 {
   "name": "ember-inflector",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "The default blueprint for Embroider v2 addons.",
   "keywords": [
     "ember-addon"
