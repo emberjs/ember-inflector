@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-08-05)
+
+ember-inflector 5.0.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-inflector`
+  * [#509](https://github.com/emberjs/ember-inflector/pull/509) Add missing export for ts declaration ([@mkszepp](https://github.com/mkszepp))
+
+#### Committers: 1
+- Markus Sanin ([@mkszepp](https://github.com/mkszepp))
+
 ## Release (2024-07-24)
 
 ember-inflector 5.0.0 (major)
