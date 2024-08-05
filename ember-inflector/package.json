@@ -10,11 +10,11 @@
   "author": "",
   "exports": {
     ".": {
-      "types": "./declarations/index.d.ts",
+      "types": "./src/index.d.ts",
       "default": "./dist/index.js"
     },
     "./*": {
-      "types": "./declarations/*.d.ts",
+      "types": "./src/*.d.ts",
       "default": "./dist/*.js"
     },
     "./addon-main.js": "./addon-main.cjs"
@@ -22,7 +22,8 @@
   "files": [
     "addon-main.cjs",
     "declarations",
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "rollup --config",
