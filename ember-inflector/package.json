@@ -9,14 +9,21 @@
   "license": "MIT",
   "author": "",
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*.js",
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./src/*.d.ts",
+      "default": "./dist/*.js"
+    },
     "./addon-main.js": "./addon-main.cjs"
   },
   "files": [
     "addon-main.cjs",
     "declarations",
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "rollup --config",
