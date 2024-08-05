@@ -15,7 +15,8 @@
     "start:addon": "pnpm --filter ember-inflector start --no-watch.clearScreen",
     "start:test-app": "pnpm --filter test-app start",
     "test": "pnpm --filter '*' test",
-    "test:ember": "pnpm --filter '*' test:ember"
+    "test:ember": "pnpm --filter '*' test:ember",
+    "test:watch": "pnpm --filter '*' test:watch"
   },
   "devDependencies": {
     "concurrently": "^8.2.0",
