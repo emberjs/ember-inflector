@@ -2,16 +2,16 @@
   "solution": {
     "ember-inflector": {
       "impact": "patch",
-      "oldVersion": "5.0.0",
-      "newVersion": "5.0.1",
+      "oldVersion": "5.0.1",
+      "newVersion": "5.0.2",
       "constraints": [
         {
           "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./ember-inflector/package.json"
     }
   },
-  "description": "## Release (2024-08-05)\n\nember-inflector 5.0.1 (patch)\n\n#### :bug: Bug Fix\n* `ember-inflector`\n  * [#509](https://github.com/emberjs/ember-inflector/pull/509) Add missing export for ts declaration ([@mkszepp](https://github.com/mkszepp))\n\n#### Committers: 1\n- Markus Sanin ([@mkszepp](https://github.com/mkszepp))\n"
+  "description": "## Release (2024-10-24)\n\nember-inflector 5.0.2 (patch)\n\n#### :house: Internal\n* `ember-inflector`\n  * [#511](https://github.com/emberjs/ember-inflector/pull/511) Restore repository and author fields in package.json ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### Committers: 1\n- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))\n"
 }
