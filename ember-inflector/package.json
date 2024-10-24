@@ -5,9 +5,12 @@
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emberjs/ember-inflector.git"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "Stefan Penner, Manuel Wiedenmann and Trace Wax",
   "exports": {
     ".": {
       "types": "./src/index.d.ts",
