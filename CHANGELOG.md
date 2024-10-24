@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-10-24)
+
+ember-inflector 5.0.2 (patch)
+
+#### :house: Internal
+* `ember-inflector`
+  * [#511](https://github.com/emberjs/ember-inflector/pull/511) Restore repository and author fields in package.json ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## Release (2024-08-05)
 
 ember-inflector 5.0.1 (patch)
