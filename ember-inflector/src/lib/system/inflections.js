@@ -77,6 +77,6 @@ export default {
     'sheep',
     'jeans',
     'police',
-    'meta'
+    'meta',
   ],
 };
