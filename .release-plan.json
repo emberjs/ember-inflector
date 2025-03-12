@@ -1,17 +1,17 @@
 {
   "solution": {
     "ember-inflector": {
-      "impact": "patch",
-      "oldVersion": "5.0.1",
-      "newVersion": "5.0.2",
+      "impact": "major",
+      "oldVersion": "5.0.2",
+      "newVersion": "6.0.0",
       "constraints": [
         {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
+          "impact": "major",
+          "reason": "Appears in changelog section :boom: Breaking Change"
         }
       ],
       "pkgJSONPath": "./ember-inflector/package.json"
     }
   },
-  "description": "## Release (2024-10-24)\n\nember-inflector 5.0.2 (patch)\n\n#### :house: Internal\n* `ember-inflector`\n  * [#511](https://github.com/emberjs/ember-inflector/pull/511) Restore repository and author fields in package.json ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### Committers: 1\n- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))\n"
+  "description": "## Release (2025-03-12)\n\nember-inflector 6.0.0 (major)\n\n#### :boom: Breaking Change\n* `ember-inflector`\n  * [#513](https://github.com/emberjs/ember-inflector/pull/513) Added meta to the uncountable array because \"metum\" is not a word. ([@ErvinSabic](https://github.com/ErvinSabic))\n\n#### Committers: 1\n- Ervin Sabic ([@ErvinSabic](https://github.com/ErvinSabic))\n"
 }

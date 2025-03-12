@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-03-12)
+
+ember-inflector 6.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-inflector`
+  * [#513](https://github.com/emberjs/ember-inflector/pull/513) Added meta to the uncountable array because "metum" is not a word. ([@ErvinSabic](https://github.com/ErvinSabic))
+
+#### Committers: 1
+- Ervin Sabic ([@ErvinSabic](https://github.com/ErvinSabic))
+
 ## Release (2024-10-24)
 
 ember-inflector 5.0.2 (patch)
