@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../src/index.js"],"sourcesContent":["/* eslint-disable import/extensions */\nimport { Inflector, pluralize, singularize } from './lib/system';\n\nexport default Inflector;\n\nexport { pluralize, singularize };\n"],"names":[],"mappings":";;;AAAA;;;;"}
