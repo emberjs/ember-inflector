@@ -145,8 +145,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       ember-cli-dependency-checker:
-        specifier: ^3.3.2
-        version: 3.3.2(ember-cli@5.10.0(handlebars@4.7.8)(underscore@1.13.6))
+        specifier: ^3.3.3
+        version: 3.3.3(ember-cli@5.10.0(handlebars@4.7.8)(underscore@1.13.6))
       ember-cli-htmlbars:
         specifier: ^6.3.0
         version: 6.3.0
@@ -3097,8 +3097,8 @@ packages:
     resolution: {integrity: sha512-BbveJCyRvzzkaTH1llLW+MpHe/yzA5zpHOpMIg2vp/3JD9mban9zUm7lphaB0TSpPuMuby9rAhTI8pgXq0ifIA==}
     engines: {node: 16.* || >= 18}
 
-  ember-cli-dependency-checker@3.3.2:
-    resolution: {integrity: sha512-PwkrW5oYsdPWwt+0Tojufmv/hxVETTjkrEdK7ANQB2VSnqpA5UcYubwpQM9ONuR2J8wyNDMwEHlqIrk/FYtBsQ==}
+  ember-cli-dependency-checker@3.3.3:
+    resolution: {integrity: sha512-mvp+HrE0M5Zhc2oW8cqs8wdhtqq0CfQXAYzaIstOzHJJn/U01NZEGu3hz7J7zl/+jxZkyygylzcS57QqmPXMuQ==}
     engines: {node: '>= 6'}
     peerDependencies:
       ember-cli: ^3.2.0 || >=4.0.0
@@ -3532,6 +3532,7 @@ packages:
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   esm@3.2.25:
@@ -3757,9 +3758,6 @@ packages:
   find-up@7.0.0:
     resolution: {integrity: sha512-YyZM99iHrqLKjmt4LJDj58KI+fYyufRLBSYcqycxf//KpBk9FoewoGX0450m9nB44qrZnovzC2oeP5hUibxc/g==}
     engines: {node: '>=18'}
-
-  find-yarn-workspace-root@1.2.1:
-    resolution: {integrity: sha512-dVtfb0WuQG+8Ag2uWkbG79hOUzEsRrhBzgfn86g2sJPkzmcpGdghbNTfUKGTxymFrY/tLIodDzLoW9nOJ4FY8Q==}
 
   find-yarn-workspace-root@2.0.0:
     resolution: {integrity: sha512-1IMnbjt4KzsQfnhnzNd8wUEgXZ44IzZaZmnLYx7D5FZlaHt2gW20Cri8Q+E/t5tIj4+epTBub+2Zxu/vNILzqQ==}
@@ -4363,6 +4361,10 @@ packages:
     resolution: {integrity: sha512-a5dFJih5ZLYlRtDc0dZWP7RiKr6xIKzmn/oAYCDvdLThadVgyJwlaoQPmRtMSpz+rk0OGAgIu+TcM9HUF0fk1A==}
     engines: {node: '>= 0.4'}
 
+  is-core-module@2.16.1:
+    resolution: {integrity: sha512-UfoeMA6fIJ8wTYFEUjelnaGI67v6+N7qXJEvQuIGa99l4xsCruSYOVSQ0uPANn4dAzm8lkYPaKLrrijLq7x23w==}
+    engines: {node: '>= 0.4'}
+
   is-data-descriptor@1.0.1:
     resolution: {integrity: sha512-bc4NlCDiCr28U4aEsQ3Qs2491gVq4V8G7MQyws968ImqjKuYtTJXrl7Vq7jsN7Ly/C3xj5KWFrY7sHNeDkAzXw==}
     engines: {node: '>= 0.4'}
@@ -4815,9 +4817,11 @@ packages:
 
   lodash.omit@4.5.0:
     resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
+    deprecated: This package is deprecated. Use destructuring assignment syntax instead.
 
   lodash.template@4.5.0:
     resolution: {integrity: sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==}
+    deprecated: This package is deprecated. Use https://socket.dev/npm/package/eta instead.
 
   lodash.templatesettings@4.2.0:
     resolution: {integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==}
@@ -4973,6 +4977,10 @@ packages:
 
   micromatch@4.0.7:
     resolution: {integrity: sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==}
+    engines: {node: '>=8.6'}
+
+  micromatch@4.0.8:
+    resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
 
   mime-db@1.52.0:
@@ -5908,6 +5916,11 @@ packages:
     resolution: {integrity: sha512-ZuF55hVUQaaczgOIwqWzkEcEidmlD/xl44x1UZnhOXcYuFN2S6+rcxpG+C1N3So0wvNI3DmJICUFfu2SxhBmvg==}
     deprecated: https://github.com/lydell/resolve-url#deprecated
 
+  resolve@1.22.10:
+    resolution: {integrity: sha512-NPRy+/ncIMeDlTAsuqwKIiferiawhefFJtkNSW0qZJEqMEb+qBt/77B/jGeeek+F0uOeN05CDa6HXbbIgtVX4w==}
+    engines: {node: '>= 0.4'}
+    hasBin: true
+
   resolve@1.22.8:
     resolution: {integrity: sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==}
     hasBin: true
@@ -6078,6 +6091,11 @@ packages:
 
   semver@7.6.2:
     resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  semver@7.7.2:
+    resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -7131,7 +7149,7 @@ snapshots:
       '@babel/helper-plugin-utils': 7.24.7
       debug: 4.3.5
       lodash.debounce: 4.0.8
-      resolve: 1.22.8
+      resolve: 1.22.10
     transitivePeerDependencies:
       - supports-color
 
@@ -8122,7 +8140,7 @@ snapshots:
       calculate-cache-key-for-tree: 2.0.0
       ember-cli-babel: 7.26.11
       ember-cli-version-checker: 5.1.2
-      semver: 7.6.2
+      semver: 7.7.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8195,8 +8213,8 @@ snapshots:
       ember-cli-babel: 7.26.11
       find-up: 5.0.0
       lodash: 4.17.21
-      resolve: 1.22.8
-      semver: 7.6.2
+      resolve: 1.22.10
+      semver: 7.7.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8546,7 +8564,7 @@ snapshots:
   '@npmcli/fs@1.1.1':
     dependencies:
       '@gar/promisify': 1.1.3
-      semver: 7.6.2
+      semver: 7.7.2
 
   '@npmcli/git@5.0.8':
     dependencies:
@@ -8557,7 +8575,7 @@ snapshots:
       proc-log: 4.2.0
       promise-inflight: 1.0.1
       promise-retry: 2.0.1
-      semver: 7.6.2
+      semver: 7.7.2
       which: 4.0.0
     transitivePeerDependencies:
       - bluebird
@@ -8575,7 +8593,7 @@ snapshots:
       json-parse-even-better-errors: 3.0.2
       normalize-package-data: 6.0.2
       proc-log: 4.2.0
-      semver: 7.6.2
+      semver: 7.7.2
     transitivePeerDependencies:
       - bluebird
 
@@ -8910,7 +8928,7 @@ snapshots:
       '@embroider/macros': 1.16.5
       babel-import-util: 2.1.1
       broccoli-funnel: 3.0.8
-      semver: 7.6.2
+      semver: 7.7.2
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
@@ -9326,7 +9344,7 @@ snapshots:
       glob: 7.2.3
       pkg-up: 2.0.0
       reselect: 3.0.1
-      resolve: 1.22.8
+      resolve: 1.22.10
 
   babel-plugin-module-resolver@5.0.2:
     dependencies:
@@ -9334,7 +9352,7 @@ snapshots:
       glob: 9.3.5
       pkg-up: 3.1.0
       reselect: 4.1.8
-      resolve: 1.22.8
+      resolve: 1.22.10
 
   babel-plugin-polyfill-corejs2@0.4.11(@babel/core@7.24.7):
     dependencies:
@@ -9897,7 +9915,7 @@ snapshots:
 
   builtins@5.1.0:
     dependencies:
-      semver: 7.6.2
+      semver: 7.7.2
 
   bytes@1.0.0: {}
 
@@ -10637,16 +10655,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli-dependency-checker@3.3.2(ember-cli@5.10.0(handlebars@4.7.8)(underscore@1.13.6)):
+  ember-cli-dependency-checker@3.3.3(ember-cli@5.10.0(handlebars@4.7.8)(underscore@1.13.6)):
     dependencies:
       chalk: 2.4.2
       ember-cli: 5.10.0(handlebars@4.7.8)(underscore@1.13.6)
-      find-yarn-workspace-root: 1.2.1
+      find-yarn-workspace-root: 2.0.0
       is-git-url: 1.0.0
-      resolve: 1.22.8
+      resolve: 1.22.10
       semver: 5.7.2
-    transitivePeerDependencies:
-      - supports-color
 
   ember-cli-get-component-path-option@1.0.0: {}
 
@@ -10664,7 +10680,7 @@ snapshots:
       hash-for-dep: 1.5.1
       heimdalljs-logger: 0.1.10
       json-stable-stringify: 1.1.1
-      semver: 7.6.2
+      semver: 7.7.2
       silent-error: 1.1.1
       strip-bom: 4.0.0
       walk-sync: 2.2.0
@@ -10754,7 +10770,7 @@ snapshots:
       ember-cli-babel-plugin-helpers: 1.1.1
       execa: 1.0.0
       fs-extra: 7.0.1
-      resolve: 1.22.8
+      resolve: 1.22.10
       rsvp: 4.8.5
       semver: 6.3.1
       stagehand: 1.0.1
@@ -10771,7 +10787,7 @@ snapshots:
       ember-cli-babel-plugin-helpers: 1.1.1
       execa: 2.1.0
       fs-extra: 8.1.0
-      resolve: 1.22.8
+      resolve: 1.22.10
       rsvp: 4.8.5
       semver: 6.3.1
       stagehand: 1.0.1
@@ -10787,9 +10803,9 @@ snapshots:
       debug: 4.3.5
       execa: 4.1.0
       fs-extra: 9.1.0
-      resolve: 1.22.8
+      resolve: 1.22.10
       rsvp: 4.8.5
-      semver: 7.6.2
+      semver: 7.7.2
       stagehand: 1.0.1
       walk-sync: 2.2.0
     transitivePeerDependencies:
@@ -11233,7 +11249,7 @@ snapshots:
       lodash: 4.17.21
       package-json: 6.5.0
       remote-git-tags: 3.0.0
-      semver: 7.6.2
+      semver: 7.7.2
     transitivePeerDependencies:
       - encoding
 
@@ -11409,7 +11425,7 @@ snapshots:
   eslint-compat-utils@0.5.1(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
-      semver: 7.6.2
+      semver: 7.7.2
 
   eslint-config-prettier@9.1.0(eslint@8.57.0):
     dependencies:
@@ -11923,22 +11939,15 @@ snapshots:
       path-exists: 5.0.0
       unicorn-magic: 0.1.0
 
-  find-yarn-workspace-root@1.2.1:
-    dependencies:
-      fs-extra: 4.0.3
-      micromatch: 3.1.10
-    transitivePeerDependencies:
-      - supports-color
-
   find-yarn-workspace-root@2.0.0:
     dependencies:
-      micromatch: 4.0.7
+      micromatch: 4.0.8
 
   findup-sync@4.0.0:
     dependencies:
       detect-file: 1.0.0
       is-glob: 4.0.3
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       resolve-dir: 1.0.1
 
   fireworm@0.7.2:
@@ -12440,7 +12449,7 @@ snapshots:
       heimdalljs: 0.2.6
       heimdalljs-logger: 0.1.10
       path-root: 0.1.1
-      resolve: 1.22.8
+      resolve: 1.22.10
       resolve-package-path: 1.2.7
     transitivePeerDependencies:
       - supports-color
@@ -12696,6 +12705,10 @@ snapshots:
   is-callable@1.2.7: {}
 
   is-core-module@2.14.0:
+    dependencies:
+      hasown: 2.0.2
+
+  is-core-module@2.16.1:
     dependencies:
       hasown: 2.0.2
 
@@ -13321,6 +13334,11 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
+  micromatch@4.0.8:
+    dependencies:
+      braces: 3.0.3
+      picomatch: 2.3.1
+
   mime-db@1.52.0: {}
 
   mime-types@2.1.35:
@@ -13505,7 +13523,7 @@ snapshots:
     dependencies:
       growly: 1.3.0
       is-wsl: 2.2.0
-      semver: 7.6.2
+      semver: 7.7.2
       shellwords: 0.1.1
       uuid: 8.3.2
       which: 2.0.2
@@ -13521,14 +13539,14 @@ snapshots:
   normalize-package-data@3.0.3:
     dependencies:
       hosted-git-info: 4.1.0
-      is-core-module: 2.14.0
-      semver: 7.6.2
+      is-core-module: 2.16.1
+      semver: 7.7.2
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.6.2
+      semver: 7.7.2
       validate-npm-package-license: 3.0.4
 
   normalize-path@2.1.1:
@@ -13541,7 +13559,7 @@ snapshots:
 
   npm-install-checks@6.3.0:
     dependencies:
-      semver: 7.6.2
+      semver: 7.7.2
 
   npm-normalize-package-bin@3.0.1: {}
 
@@ -13556,7 +13574,7 @@ snapshots:
     dependencies:
       hosted-git-info: 7.0.2
       proc-log: 4.2.0
-      semver: 7.6.2
+      semver: 7.7.2
       validate-npm-package-name: 5.0.1
 
   npm-pick-manifest@9.1.0:
@@ -13564,7 +13582,7 @@ snapshots:
       npm-install-checks: 6.3.0
       npm-normalize-package-bin: 3.0.1
       npm-package-arg: 11.0.3
-      semver: 7.6.2
+      semver: 7.7.2
 
   npm-run-path@2.0.2:
     dependencies:
@@ -13762,7 +13780,7 @@ snapshots:
       ky: 1.4.0
       registry-auth-token: 5.0.2
       registry-url: 6.0.1
-      semver: 7.6.2
+      semver: 7.7.2
 
   package-json@6.5.0:
     dependencies:
@@ -14218,17 +14236,17 @@ snapshots:
   resolve-package-path@1.2.7:
     dependencies:
       path-root: 0.1.1
-      resolve: 1.22.8
+      resolve: 1.22.10
 
   resolve-package-path@2.0.0:
     dependencies:
       path-root: 0.1.1
-      resolve: 1.22.8
+      resolve: 1.22.10
 
   resolve-package-path@3.1.0:
     dependencies:
       path-root: 0.1.1
-      resolve: 1.22.8
+      resolve: 1.22.10
 
   resolve-package-path@4.0.3:
     dependencies:
@@ -14242,6 +14260,12 @@ snapshots:
   resolve-pkg-maps@1.0.0: {}
 
   resolve-url@0.2.1: {}
+
+  resolve@1.22.10:
+    dependencies:
+      is-core-module: 2.16.1
+      path-parse: 1.0.7
+      supports-preserve-symlinks-flag: 1.0.0
 
   resolve@1.22.8:
     dependencies:
@@ -14449,6 +14473,8 @@ snapshots:
   semver@6.3.1: {}
 
   semver@7.6.2: {}
+
+  semver@7.7.2: {}
 
   send@0.18.0:
     dependencies:
@@ -15368,7 +15394,7 @@ snapshots:
   validate-peer-dependencies@1.2.0:
     dependencies:
       resolve-package-path: 3.1.0
-      semver: 7.6.2
+      semver: 7.7.2
 
   vary@1.1.2: {}
 
