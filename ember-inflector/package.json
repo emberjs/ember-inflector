@@ -52,7 +52,7 @@
     "@rollup/plugin-babel": "^6.0.4",
     "babel-plugin-ember-template-compilation": "^2.2.5",
     "concurrently": "^8.2.2",
-    "ember-template-lint": "^6.0.0",
+    "ember-template-lint": "^7.9.3",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-ember": "^12.0.2",
