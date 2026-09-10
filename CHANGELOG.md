@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2026-09-10)
+
+* ember-inflector 7.0.1 (patch)
+
+#### :house: Internal
+* `ember-inflector`
+  * [#538](https://github.com/emberjs/ember-inflector/pull/538) fix: lint ([@aklkv](https://github.com/aklkv))
+
+#### Committers: 1
+- Alexey Kulakov ([@aklkv](https://github.com/aklkv))
+
 ## Release (2026-09-08)
 
 * ember-inflector 7.0.0 (major)
