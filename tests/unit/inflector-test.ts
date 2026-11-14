@@ -500,6 +500,44 @@ module('Unit | Utility | inflector', function (hooks) {
     assert.equal(inflector.singularize('pufferfish'), 'pufferfish');
   });
 
+  test('irregular words are only replaced at the end of the word', function (assert) {
+    const inflector = new Inflector(Inflector.defaultRules);
+
+    assert.equal(
+      inflector.pluralize('management/chairman'),
+      'management/chairmen',
+    );
+    assert.equal(
+      inflector.pluralize('personal-spokesperson'),
+      'personal-spokespeople',
+    );
+    assert.equal(
+      inflector.pluralize('personalContactPerson'),
+      'personalContactPeople',
+    );
+    assert.equal(
+      inflector.pluralize('child/grandchild'),
+      'child/grandchildren',
+    );
+
+    assert.equal(
+      inflector.singularize('department-chairmen'),
+      'department-chairman',
+    );
+    assert.equal(
+      inflector.singularize('personalContactPeople'),
+      'personalContactPerson',
+    );
+    assert.equal(
+      inflector.singularize('personalContactPerson'),
+      'personalContactPerson',
+    );
+    assert.equal(
+      inflector.singularize('children/grandchildren'),
+      'children/grandchild',
+    );
+  });
+
   test('partial words containing uncountable words can be pluralized', function (assert) {
     const inflector = new Inflector(Inflector.defaultRules);
     assert.equal(inflector.pluralize('price'), 'prices');
