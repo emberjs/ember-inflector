@@ -360,7 +360,7 @@ export default class Inflector {
             rule = capitalize(rule);
           }
 
-          return word.replace(new RegExp(rule, 'i'), substitution);
+          return word.replace(new RegExp(`${rule}$`, 'i'), substitution);
         }
       }
     }
