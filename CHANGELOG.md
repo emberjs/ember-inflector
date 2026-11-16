@@ -1,5 +1,21 @@
 # Changelog
 
+## Release (2026-11-16)
+
+* ember-inflector 7.0.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-inflector`
+  * [#541](https://github.com/emberjs/ember-inflector/pull/541) Fix pluralize/singularize replacing an irregular word that is not at the end ([@bardrop](https://github.com/bardrop))
+
+#### :house: Internal
+* `ember-inflector`
+  * [#538](https://github.com/emberjs/ember-inflector/pull/538) fix: lint ([@aklkv](https://github.com/aklkv))
+
+#### Committers: 2
+- Alexey Kulakov ([@aklkv](https://github.com/aklkv))
+- bardrop ([@bardrop](https://github.com/bardrop))
+
 ## Release (2026-09-08)
 
 * ember-inflector 7.0.0 (major)
