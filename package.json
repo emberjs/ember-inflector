@@ -96,7 +96,7 @@
     "testem": "^3.21.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.70.0",
-    "vite": "^8.2.2"
+    "vite": "^8.2.4"
   },
   "ember": {
     "edition": "octane"
