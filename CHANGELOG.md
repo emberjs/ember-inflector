@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2026-11-19)
+
+* ember-inflector 7.0.2 (patch)
+
+#### :bug: Bug Fix
+* `ember-inflector`
+  * [#545](https://github.com/emberjs/ember-inflector/pull/545) Keep the capital letter of a capitalized irregular word ([@bardrop](https://github.com/bardrop))
+
+#### Committers: 1
+- bardrop ([@bardrop](https://github.com/bardrop))
+
 ## Release (2026-11-16)
 
 * ember-inflector 7.0.1 (patch)
