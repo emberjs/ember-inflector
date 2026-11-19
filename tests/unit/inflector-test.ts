@@ -580,6 +580,33 @@ module('Unit | Utility | inflector', function (hooks) {
     assert.equal(inflector.pluralize('tipoDocumento'), 'tiposDocumento');
   });
 
+  test('a capitalized irregular word keeps its capital letter', function (assert) {
+    const inflector = new Inflector(Inflector.defaultRules);
+
+    assert.equal(inflector.pluralize('Child'), 'Children');
+    assert.equal(inflector.singularize('Children'), 'Child');
+    assert.equal(inflector.pluralize('Person'), 'People');
+    assert.equal(inflector.singularize('People'), 'Person');
+    assert.equal(inflector.pluralize('PERSON'), 'People');
+    assert.equal(inflector.pluralize('Man'), 'Men');
+    assert.equal(inflector.singularize('Men'), 'Man');
+    assert.equal(inflector.pluralize('Move'), 'Moves');
+    assert.equal(inflector.singularize('Moves'), 'Move');
+    assert.equal(inflector.pluralize('Node_Child'), 'Node_Children');
+    assert.equal(inflector.pluralize('admin/Person'), 'admin/People');
+    assert.equal(inflector.pluralize('Salesperson'), 'Salespeople');
+  });
+
+  test('a capitalized custom irregular word keeps its capital letter', function (assert) {
+    const inflector = new Inflector(Inflector.defaultRules);
+    inflector.irregular('woman', 'womenfolk');
+    inflector.irregular('unitOfMeasure', 'unitsOfMeasure');
+
+    assert.equal(inflector.pluralize('SalesWoman'), 'SalesWomen');
+    assert.equal(inflector.pluralize('UnitOfMeasure'), 'UnitsOfMeasure');
+    assert.equal(inflector.singularize('UnitsOfMeasure'), 'UnitOfMeasure');
+  });
+
   test('Inflector.pluralize passes same test cases as ActiveSupport::Inflector#pluralize', function (assert) {
     const inflector = new Inflector(Inflector.defaultRules);
 

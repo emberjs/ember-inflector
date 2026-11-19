@@ -38,7 +38,6 @@ export interface PluralizeOptions {
 const BLANK_REGEX = /^\s*$/;
 const LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$)/;
 const LAST_WORD_CAMELIZED_REGEX = /([\w/\s-]+)([A-Z][a-z\d]*$)/;
-const CAMELIZED_REGEX = /[A-Z][a-z\d]*$/;
 const CAPITALIZE_REGEX = /(^|\/)([a-z\u00C0-\u024F])/g;
 
 function capitalize(str: string): string {
@@ -335,7 +334,6 @@ export default class Inflector {
       return word;
     }
 
-    const isCamelized = CAMELIZED_REGEX.test(word);
     const lowercase = word.toLowerCase();
     const wordSplit =
       LAST_WORD_DASHED_REGEX.exec(word) || LAST_WORD_CAMELIZED_REGEX.exec(word);
@@ -352,15 +350,15 @@ export default class Inflector {
     if (irregular) {
       for (const key in irregular) {
         if (lowercase.match(`${key}$`)) {
-          let rule = key;
-          let substitution = irregular[key] as string;
+          const substitution = irregular[key] as string;
 
-          if (isCamelized && lastWord !== undefined && irregular[lastWord]) {
-            substitution = capitalize(substitution);
-            rule = capitalize(rule);
-          }
-
-          return word.replace(new RegExp(`${rule}$`, 'i'), substitution);
+          // Keep a capital first letter: 'Child' -> 'Children', 'SalesPerson' -> 'SalesPeople'.
+          return word.replace(new RegExp(`${key}$`, 'i'), (matched) => {
+            const first = matched.charAt(0);
+            return first === first.toLowerCase()
+              ? substitution
+              : capitalize(substitution);
+          });
         }
       }
     }
