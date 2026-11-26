@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2026-11-26)
+
+* ember-inflector 7.0.3 (patch)
+
+#### :bug: Bug Fix
+* `ember-inflector`
+  * [#547](https://github.com/emberjs/ember-inflector/pull/547) Leave an uppercase uncountable last word alone ([@bardrop](https://github.com/bardrop))
+
+#### Committers: 1
+- bardrop ([@bardrop](https://github.com/bardrop))
+
 ## Release (2026-11-19)
 
 * ember-inflector 7.0.2 (patch)

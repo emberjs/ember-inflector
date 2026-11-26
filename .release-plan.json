@@ -2,8 +2,8 @@
   "solution": {
     "ember-inflector": {
       "impact": "patch",
-      "oldVersion": "7.0.1",
-      "newVersion": "7.0.2",
+      "oldVersion": "7.0.2",
+      "newVersion": "7.0.3",
       "tagName": "latest",
       "constraints": [
         {
@@ -14,5 +14,5 @@
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2026-11-19)\n\n* ember-inflector 7.0.2 (patch)\n\n#### :bug: Bug Fix\n* `ember-inflector`\n  * [#545](https://github.com/emberjs/ember-inflector/pull/545) Keep the capital letter of a capitalized irregular word ([@bardrop](https://github.com/bardrop))\n\n#### Committers: 1\n- bardrop ([@bardrop](https://github.com/bardrop))\n"
+  "description": "## Release (2026-11-26)\n\n* ember-inflector 7.0.3 (patch)\n\n#### :bug: Bug Fix\n* `ember-inflector`\n  * [#547](https://github.com/emberjs/ember-inflector/pull/547) Leave an uppercase uncountable last word alone ([@bardrop](https://github.com/bardrop))\n\n#### Committers: 1\n- bardrop ([@bardrop](https://github.com/bardrop))\n"
 }
