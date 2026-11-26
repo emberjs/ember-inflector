@@ -36,7 +36,8 @@ export interface PluralizeOptions {
 }
 
 const BLANK_REGEX = /^\s*$/;
-const LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$)/;
+// The last word may be all lowercase or all uppercase: 'my-sheep', 'MY_SHEEP'.
+const LAST_WORD_DASHED_REGEX = /([\w/-]+[_/\s-])([a-z\d]+$|[A-Z\d]+$)/;
 const LAST_WORD_CAMELIZED_REGEX = /([\w/\s-]+)([A-Z][a-z\d]*$)/;
 const CAPITALIZE_REGEX = /(^|\/)([a-z\u00C0-\u024F])/g;
 
