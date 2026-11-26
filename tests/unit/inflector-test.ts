@@ -568,6 +568,22 @@ module('Unit | Utility | inflector', function (hooks) {
     assert.equal(inflector.singularize('friedRice'), 'friedRice');
   });
 
+  test('an uppercase uncountable last word is left alone', function (assert) {
+    const inflector = new Inflector(Inflector.defaultRules);
+
+    assert.equal(inflector.pluralize('my SHEEP'), 'my SHEEP');
+    assert.equal(inflector.pluralize('big-FISH'), 'big-FISH');
+    assert.equal(inflector.pluralize('admin/EQUIPMENT'), 'admin/EQUIPMENT');
+    assert.equal(inflector.pluralize('USER_INFORMATION'), 'USER_INFORMATION');
+    assert.equal(inflector.singularize('new SERIES'), 'new SERIES');
+    assert.equal(inflector.singularize('big-SPECIES'), 'big-SPECIES');
+    assert.equal(inflector.singularize('blue_JEANS'), 'blue_JEANS');
+
+    // Words that are not uncountable are still inflected.
+    assert.equal(inflector.pluralize('my CAR'), 'my CARs');
+    assert.equal(inflector.singularize('my CARS'), 'my CAR');
+  });
+
   test('CamelCase custom irregular words', function (assert) {
     const inflector = new Inflector(Inflector.defaultRules);
     inflector.irregular('unitOfMeasure', 'unitsOfMeasure');
